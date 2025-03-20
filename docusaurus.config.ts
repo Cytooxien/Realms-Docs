@@ -14,7 +14,7 @@ const config: Config = {
   baseUrl: '/',
 
   organizationName: 'Cytooxien',
-  projectName: 'Realms-Doku',
+  projectName: 'Realms-Docs',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -37,7 +37,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl:
-            'https://github.com/Cytooxien/Realms-Doku/tree/main/',
+            'https://github.com/Cytooxien/Realms-Docs/tree/main/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -57,7 +57,7 @@ const config: Config = {
       },
       items: [
         {
-          href: 'https://github.com/Cytooxien/Realms-Doku',
+          href: 'https://github.com/Cytooxien/Realms-Docs',
           label: 'GitHub',
           position: 'right',
         },
@@ -93,7 +93,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/Cytooxien/Realms-Doku',
+              href: 'https://github.com/Cytooxien/Realms-Docs',
             },
           ],
         },
