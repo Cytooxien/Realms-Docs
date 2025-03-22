@@ -32,6 +32,7 @@ const sidebars: SidebarsConfig = {
             items: [
                 "web-interface/console",
                 "web-interface/file-manager",
+                "web-interface/advanced-configuration",
                 "web-interface/other-tabs",
                 "web-interface/profile"
             ]
