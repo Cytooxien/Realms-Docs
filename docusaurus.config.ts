@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Cytooxien-Realms Wiki',
   tagline: 'The official wiki for Cytooxien Realms',
-  favicon: 'img/favicon.ico',
+  favicon: 'favicon.png',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
