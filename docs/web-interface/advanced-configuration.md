@@ -10,16 +10,16 @@ pagination_prev: web-interface/file-manager
 
 For Minecraft configurations, refer to [Paper's documentation](https://docs.papermc.io/paper/reference/configuration).
 
-### realm.yml
+## realm.yml
 
-| Key                        | Type            | Description                                                                                                               |
-|----------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------|
-| `HandleChat`               | Boolean         | Whether Cytooxien should handle and format chat messages.                                                                 |
-| `LoadPredefinedPlugins`    | List of Strings | List of predefined plugins to load.                                                                                       |
-| `DisplaySystem.showGroups` | Boolean         | Whether to display the group. If disabled, color depends on the [Minecraft team](https://minecraft.wiki/w/Commands/team). |
-| `SendJoinHelp`             | Boolean         | Whether to send a join help message to admins.                                                                            |
+| Key                        | Type            | Description                                                                                                                                           |
+|----------------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `HandleChat`               | Boolean         | Whether Cytooxien should handle and format chat messages.                                                                                             |
+| `LoadPredefinedPlugins`    | List of Strings | List of predefined plugins to load.                                                                                                                   |
+| `DisplaySystem.showGroups` | Boolean         | Whether to format the player's name based on their group. If disabled, color depends on the [Minecraft team](https://minecraft.wiki/w/Commands/team). |
+| `SendJoinHelp`             | Boolean         | Whether to send a join help message to admins.                                                                                                        |
 
-### realm-messages.yml
+## realm-messages.yml
 
 | Key                         | Type   | Description                                                                                                                                |
 |-----------------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -40,7 +40,7 @@ For Minecraft configurations, refer to [Paper's documentation](https://docs.pape
 | `Messages.playerLeft.mxn`   | String | Quit message for players who have selected `Memetooxien` as their primary language. Use `%player%` as a placeholder for the player's name. |
 | `Messages.playerLeft.ru`    | String | Quit message for players who have selected Russian as their primary language. Use `%player%` as a placeholder for the player's name.       |
 
-### worlds.yml
+## worlds.yml
 
 Managed via the [World Management](../getting-started/world-management).
 
