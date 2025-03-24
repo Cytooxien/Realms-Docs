@@ -1,5 +1,5 @@
 ---
-pagination_next: null
+pagination_next: web-interface/ptero-api
 pagination_prev: web-interface/other-tabs
 ---
 

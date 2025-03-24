@@ -122,6 +122,10 @@ h5 {
     color: #ffffff;
 }
 
+.dropdown__link:hover {
+    color: #d6d6d6;
+}
+
 .footer {
     background-color: var(--ifm-color-primary-black);
     color: #ffffff;

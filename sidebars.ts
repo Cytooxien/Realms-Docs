@@ -34,7 +34,8 @@ const sidebars: SidebarsConfig = {
                 "web-interface/file-manager",
                 "web-interface/advanced-configuration",
                 "web-interface/other-tabs",
-                "web-interface/profile"
+                "web-interface/profile",
+                "web-interface/ptero-api"
             ]
         }
     ],
