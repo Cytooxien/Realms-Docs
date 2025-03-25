@@ -9,11 +9,11 @@ pagination_prev: getting-started/settings
 
 The group system is a crucial part of the realms system as it allows server owners to easily assign permissions and prefixes to players.
 
-#### How to access the group management interface
+### How to access the group management interface
 
 First open the realm management GUI using `/realm`. Now you need to click the button with the title "Group management".
 
-#### How to create a group
+### How to create a group
 
 To create a group, click the plus symbol in the group management. It creates a group with a default name and with no additional permissions.
 
@@ -21,7 +21,7 @@ To create a group, click the plus symbol in the group management. It creates a g
 
 To edit a group, click the name of the group in the group management GUI.
 
-###### How to edit the name, color, prefix and priority of a group
+###### How to edit the name, color, prefix, and priority of a group
 
 You can rename the group by clicking the edit icon next to its name. This will prompt you to input a new name into the chat.
 
