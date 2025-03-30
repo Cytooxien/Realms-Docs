@@ -1,0 +1,17 @@
+name: Misinformation
+description: Help us correct incorrect information.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report misinformation.
+        Please ensure that the information you are reporting is indeed incorrect and has not already been reported. 
+        To help us address the issue effectively, kindly provide as much detail as possible.
+  - type: input
+    attributes:
+      label: Incorrect URL
+      description: Please provide the URL of the page containing the incorrect information.
+  - type: textarea
+    attributes:
+      label: Misinformation Details
+      description: Describe what information is incorrect, how it is misleading, and what the correct information should be.

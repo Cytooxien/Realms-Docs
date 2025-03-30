@@ -1,0 +1,12 @@
+name: Suggest New Content
+description: Propose new topics or content for the documentation.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting new content for our documentation!
+        Before submitting your idea, please check to ensure it hasn't already been proposed or included.
+  - type: textarea
+    attributes:
+      label: Content Idea
+      description: Please describe your idea in detail. What topic or information do you think should be added to the documentation?
