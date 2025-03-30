@@ -3,20 +3,20 @@ pagination_next: getting-started/settings
 pagination_prev: null
 ---
 
-# Erstelle deinen ersten Realm
+# Erstellung deines ersten Realms
 
-##### Dieser Guide wird dir erklären, wie du deinen ersten Realm erstellst.
+##### Diese Seite erklärt dir, wie du deinen ersten Realm erstellen kannst
 
-Um einen Realm zu erstellen musst du dich erstmal in die Realms-Lobby begeben. Dort wirst du an der rechten Seite einen NPC mit dem Titel "Meine Realms" sehen.
+Um deinen ersten Realm zu erstellen, musst du zuerst in die Realm-Lobby gehen. Dort wirst du einen NPC sehen mit dem Titel "Meine Realms".
 
-![My realms npc](../../../../../static/img/de/getting-started/npc.png)
+![Meine Realms NPC](../../../../../static/img/de/getting-started/npc.png)
 
-Rechtsklicke den NPC und klicke dann auf den Knopf, der den Titel "Realm erstellen" hat.
+Rechtsklicke diesen und betätige den grünen Knopf "Realm erstellen".
 
-![My realms menu](../../../../../static/img/de/getting-started/create.png)
+![Meine Realms Menu](../../../../../static/img/de/getting-started/create.png)
 
-Dies wird dich dazu auffordern, einen Namen für den Realm einzugeben und entscheiden, ob der Realm für alle Spieler zugänglich sein soll oder nicht. Du kannst ebenfalls eine Vorlage für deinen Realm auswählen, womit bestimmte Plugins automatisch auf deinen Realm installiert werden. Du kannst ebenfalls das Icon für den Realm auswählen, indem du auf das Banner klickst.
+Diese Aktion öffnet eine weitere Oberfläche, um den Realm-Namen einzustellen. Du kannst außerdem einstellen, ob dein Realm privat oder öffentlich zugänglich sein soll. Es gibt ebenfalls die Möglichkeit, direkt eine Vorlage mit vordefinierten Plug-Ins zu laden. Zusätzlich kannst du mit einem Klick auf das Realm-Banner dieses verändern.
 
-![Create realm menu](../../../../../static/img/de/getting-started/create-gui.png)
+![Realm erstellen Menu](../../../../../static/img/de/getting-started/create-gui.png)
 
-Nun hast du deinen Realm erstellt. Um ihn nach deinen Vorstellungen anzupassen, kannst du [die Einstellungen im Einstellungsmenü ändern](./settings).
+So einfach hast du deinen Realm erstellt. Um diesen weiter zu konfigurieren, kannst du zusätzliches in [den Einstellungen](./settings) ändern.

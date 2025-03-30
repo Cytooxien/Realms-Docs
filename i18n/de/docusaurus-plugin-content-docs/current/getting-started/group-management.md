@@ -3,46 +3,46 @@ pagination_next: getting-started/player-management
 pagination_prev: getting-started/settings
 ---
 
-# Gruppen-Management
+# Gruppenverwaltung
 
-##### Dieser Guide wird dir erklären, wie du das Gruppen-Management-Interface nutzt.
+##### Diese Seite erklärt, wie die Gruppenverwaltung genutzt wird.
 
-Die Gruppenverwaltung ist ein essentieller Teil der Administration deines Realms, da sie dir ermöglicht, Spieler in Gruppen aufzuteilen und ihnen Berechtigungen zu erteilen.
+Das Gruppen-System ist ein ausschlaggebender Teil von Realms. Hier kannst du Spielern Berechtigungen geben und deren Präfixe verändern.
 
-### Das Gruppen-Management-Interface öffnen
+### Wie kann ich auf das Gruppen-System zugreifen?
 
-Als allererstes öffnest du das Realm-Verwaltungsmenü, indem du den Befehl `/realm` im Chat ausführst. Nun musst du den Knopf mit dem Titel "Gruppen-Management" drücken.
+Öffne zuerst die Realm-Oberfläche mit `/realm`. Nun klicke auf den Knopf "Gruppen".
 
-### Eine Gruppe erstellen
+### Wie kann ich eine Gruppe erstellen?
 
-Um eine Gruppe zu erstellen drückst du auf das Plus-Symbol in der Gruppenverwaltung. Es erstellt eine Gruppe mit einem vorbestimmten Namen und ohne besondere Berechtigungen.
+Mit einem Klick auf das grüne Plus wird eine Gruppe ohne zusätzliche Berechtigungen erstellt.
 
-### Eine Gruppe bearbeiten
+### Wie kann eine Gruppe bearbeitet werden?
 
-Um eine Gruppe zu bearbeiten, musst du auf den Namen der Gruppe in der oberen Liste an Gruppen in der Gruppenverwaltung klicken. 
+Um eine Gruppe zu bearbeiten, suche die Gruppe in der oberen Leiste der Oberfläche und klicke auf diese.
 
-###### Name, Prefix, Farbe und Priorität der Gruppe ändern
+###### Wie kann ich den Namen, die Priorität, den Präfix und die Farbe einer Gruppe editieren?
 
-You can rename the group by clicking the edit icon next to its name. This will prompt you to input a new name into the chat.
+Du kannst eine Gruppe umbenennen, indem du den Stift neben dem Namen anklickst. Gebe den neuen Namen dann in den Chat ein. 
 
-You're also able to edit the tab list priority of your realm by incrementing or decrementing the number you can see next in the next line using the plus and minus icons. Next to it, there's also an option to edit the tab prefix for the group. If you want to have a prefix similar to the ones you see on Cytooxien, you can input `<tag:#HEX-CODE>PREFIX</tag>`, of course replace *Hex Code* and *PREFIX* with your desired hex code and your desired prefix text.
+Die Priorität einer Gruppe kann mit dem Plus und Minus verändert werden. Dahinter ist ein weiterer Knopf, um den Präfix der Gruppe zu verändern. Wenn du Präfixe wie auf Cytooxien haben möchtest, nutze `<tag:#HEX>PRÄFIX</tag>` und ersetze *HEX* und *PRÄFIX* mit den passenden Werten.
 
-At the bottom of the group management, you can also change the color in which the players who that group's been assigned to are displayed in the tab list. Click the arrows to scroll through all the options of colors to find the one you prefer for that group.
+In der untersten Leiste der Gruppeneinstellung kann die Farbe der ausgewählten Gruppe verändert werden. Suche einfach mit den Pfeilen die gewünschte Farbe heraus.
 
-###### How to make the group be automatically assigned to realm boosters
+###### Wie kann eine Gruppe automatisch an Realm-Booster vergeben werden?
 
-There's also an option to set whether the group will be automatically given to a player if they boost the server a specific number of times. Enable the checkbox next to the "Boosts" text to make the group be automatically given to a player when they boost this realm. You're also able to select the minimum number of times which a player should boost a server to receive this group.
+Es gibt eine zusätzliche Option, eine Gruppe zu vergeben, wenn ein Spieler öfter als die einstellte Anzahl den Server mit einem Boost unterstützt hat. Aktiviere zunächst den Regler, um die Anzahl mit dem Plus und Minus zu verändern.
 
-###### How to edit the permissions which a group gives players
+###### Wie kann ich die Berechtigungen einer Gruppe anpassen?
 
-You're able to edit permissions by clicking the gear icon. At the top, you can see different categories of permissions. Each of them corresponds with either a plugin, the vanilla game or the realms system itself. Once you select a category, you're able to select whether the permission should be given, whether it shouldn't be modified or whether it should be explicitly denied. You're also able to add custom permissions using the last category. Click the plus icon and enter the permission which you want to add in the chat.
+Sollte das Zahnrad am oberen Rand der Gruppeneinstellung betätigt werden, können die Berechtigungen verändern werden. Es gibt für verschiedene Kategorien für Allgemeine, Minecraftspezifische oder auch Plug-In-spezifische Berechtigungen. Wenn eine Kategorie ausgewählt wird, können die verschiedenen Berechtigungen entweder vergeben werden, nicht modifiziert werden oder explizit entfernt werden. In der letzten Kategorie kann mit dem Plus-Symbol eine zusätzliche Berechtigung hinzugefügt werden.
 
-###### How to delete a group
+###### Wie kann ich eine Gruppe löschen?
 
-In the top-right corner of the group settings, there's also an option to delete the group.
+Das Papierkorb-Symbol in den Gruppeneinstellungen löscht die Gruppe unwiderruflich.
 
-### How to use the `/group` command
+### Wie wird der `/group`-Befehl genutzt?
 
-To assign players to a group, execute the command `/group add <playername> <group name>` in game.
+Mit diesem Befehl können jegliche Gruppen an Spieler vergeben werden. Nutze dafür `/group add <Spieler> <Gruppe>`
 
-You're also able to remove players from a group by executing `/group remove <playername> <group name>`.
+Sollte hingegen `/group remove <Spieler> <Gruppe>` verwendet werden, wird die Gruppe vom Spieler entfernt.

@@ -8,7 +8,7 @@
     "description": "Das Label für die Kategorie Erste Schritte in der Sidebar"
   },
   "sidebar.mainSidebar.category.Web Interface": {
-    "message": "Web Interface",
-    "description": "Das Label für die Kategorie Web Interface in der Sidebar"
+    "message": "Web-Interface",
+    "description": "Das Label für die Kategorie Web-Interface in der Sidebar"
   }
 }
