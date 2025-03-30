@@ -3,54 +3,58 @@ pagination_next: getting-started/group-management
 pagination_prev: getting-started/create-your-first-realm
 ---
 
-# Realm Settings
+# Realmeinstellungen
 
-##### This guide will explain how to configure the realm to fit your needs
+##### Diese Seite erklärt die Konfigurationsmöglichkeiten deines Realms.
 
-### Open the settings menu
+### Öffnen des Menus
 
-To get to the settings of your realm, you need to execute the command `/realm` in-game.
+Um die Einstellungen zu öffnen, gebe zuerst auf deinem Realm `/realm` ein.
 
-If you're currently in the lobby and not on your realm, firstly, you need to open your realm by selecting it in the GUI of the "My Realms" NPC in the realms lobby.
+Solltest du dich in der Lobby befinden, wähle deinen Realm im Browser aus.
 
-Now you can access the settings of your realm by clicking the gear icon in the bottom right corner.
+Mit einem Klick auf den Zahnrad-Knopf öffnen sich die Einstellungen.
 
-### Settings categories
+### Einstellungen
 
-Let's explain the categories by going top to bottom and left to right.
+Hier ist eine Erklärung für alle Einstellungsmöglichkeiten.
 
-#### Realm icon
+#### Realm Banner
 
-By clicking onto the banner item, you're able to change the icon of your realm and thus the way it's being displayed in the realm browser.
+Mit dem Klicken auf das Banner, kann dieses geändert werden. Dieses Banner wird im Browser angezeigt.
 
-#### Realm name
+#### Realm Name
 
-By clicking onto the pencil icon next to your realm's name, you're able to change it to whatever you want. From Boost level 3 and up, you're able to use Bukkit color codes in the realm name.
+Mit dem Stift neben dem Realm-Namen kannst du deinen Realm umbenennen. Ab Boost-Level 3 kannst du hier sogar Bukkit-Farbcodes verwenden.
 
-#### Copy realm
+#### Realm kopieren
 
-By clicking onto the "Copy Realm" icon, you're able to copy your entire realm onto another one. Keep in mind that boosts won't be transferred onto the new realm.
+Wenn auf "Realm kopieren" geklickt wird, wird der gesamte Realm kopiert. Vergiss aber nicht, dass die Boosts nicht kopiert werden.
 
-#### Restore realm
+#### Wiederherstellungspunkt laden.
 
-There are backups of your realm being created every once in a while. If something bad happens to your realm (such as data loss or destruction of your world), you're able to restore a backup. Keep in mind that it'll wipe all the data on your realm and replace it with the backup. After some time, the backups get deleted.
+Dein Realm macht automatisch Wiederherstellungspunkte. Sollte es Probleme mit dem Realm geben (Datenverluste oder Zerstörung deiner Welt), kann ein früherer Wiederherstellungspunkt geladen werden, um dein Realm zu reparieren. Dabei werden jegliche Daten auf deinem Realm überschrieben! Wiederherstellungspunkte löschen sich nach einiger Zeit automatisch.
 
-#### Delete realm
+#### Realm löschen
 
-This will delete your realm. Keep in mind that this is irreversible, and you won't be able to recover any of the files.
+Dieser Knopf löscht deinen Realm unwiderruflich. Es gibt danach keine Möglichkeit, jegliche Dateien wiederherzustellen.
 
-#### Set up subdomain
+#### Subdomain konfigurieren
 
-Once your realm reaches boost level 10, players will be able to join your realm directly from a subdomain. Click the edit icon and type the subdomain you want into the input field. After some time, players will be able to join your realm using that subdomain.
+Wenn das Boost-Level von deinem Realm größer als 10 ist, können Spieler den Realm direkt über eine subdomain betreten. Klicke dazu auf den Stift und gebe die Subdomain ein. Nach einige Zeit wird es über diese möglich sein, den Realm zu betreten.
 
-#### Change description
+#### Beschreibung ändern
 
-You can change the description of your realm. The description will be displayed in the realm browser alongside the realm name and its icon.
+Du kannst die Beschreibung deines Realms ändern. Diese wird im Browser unter dem Realm-Namen angezeigt.
 
-#### Whitelist
+#### Gästeliste
 
-By enabling the whitelist, only select players can join your realm. Right next to it, you can change the maximum number of players that the realm can have. The maximum number of player slots is limited by the boost level of your realm.
+Wenn die Gästeliste aktiviert ist, können nur noch Spieler auf dieser den Realm betreten. 
+
+### Spieleranzahl
+
+Neben der Gästeliste ist es möglich, die maximale Spieleranzahl zu verändern. Diese wird vom Boost-Level limitiert.
 
 #### Template
 
-By changing the template of your realm, you're changing the plugins which will automatically be installed onto your realm. If you want to remove some plugins the templates offer, it'd be better to set the template to "Classic" and install the plugins manually.
+Beim Ändern einer Realm-Vorlage, werden automatisch verschiedene Plug-Ins geladen. Wenn du einige dieser Plug-Ins nicht möchtest, wäre es besser, die Vorlage `Klassisch` zu verwenden und alle Plug-Ins manuell zu installieren.

@@ -7,23 +7,23 @@ pagination_prev: web-interface/profile
 
 [//]: # (TODO: Give more detailed examples + add more content)
 
-##### This guide will show you how to use the Pterodactyl API to control your realms
+##### Diese Seite erklärt, wie die Pterodactyl API funktioniert
 
-### What can the Pterodactyl API be used for
+### Wofür kann diese API verwendet werden?
 
-The Pterodactyl API can be used for various actions such as starting and stopping servers, retrieving a console output or modify files.
+Die Pterodactyl API kann für verschiedene Aktionen wie das Starten oder Stoppen des Servers sowie das erhalten der Konsole oder das Modifizieren von Dateien verwendet werden.
 
-### How do you use the API
+### Wie kann wird die API genutzt?
 
-In order to use the API, you first need to create an API key. An explanation for that can be found [here](./profile#how-to-create-an-api-key).
+Um die API zu verwenden, erstelle zunächst einen API-Schlüssel. Eine Erklärung dafür gibt es [hier](./profile#wie-kann-ein-api-schlüssel-generiert-werden).
 
-To access the API, you need to provide the API key in the authorization header as a bearer token. Here's an example for a basic structure for an HTTP request in Python:
+Um auf die API zuzugreifen muss der Schlüssel im Authorization-Header als Bearer-Token bereitgestellt werden. Hier ist ein Beispiel in Python:
 
 ```python
 import requests 
 
 PANEL_URL = "https://realms.cytooxien.de"
-API_KEY = "<your api key>"
+API_KEY = "<Dein API-Schlüssel>"
 
 headers = {
     "Authorization": f"Bearer {API_KEY}",
@@ -35,13 +35,13 @@ url = f"{PANEL_URL}/api/client"
 response = requests.get(url, headers=headers)
 ```
 
-Here's an example of a use case of the API:
+Hier ist ein weiteres Beispiel für die Benutzung der API:
 
 ```python
 import requests 
 
 PANEL_URL = "https://realms.cytooxien.de"
-API_KEY = "<your api key>"
+API_KEY = "<Dein API-Schlüssel>"
 
 headers = {
     "Authorization": f"Bearer {API_KEY}",
@@ -57,9 +57,9 @@ if response.status_code == 200:
     for server in servers:
         print(f"Server Name: {server['attributes']['name']}, UUID: {server['attributes']['uuid']}")
 else:
-        print(f"Error: {response.status_code}, {response.text}")        
+        print(f"Fehler: {response.status_code}, {response.text}")        
 ```
 
-This will make an api request to retrieve the servers of a user.
+Dieser Code macht eine Anfrage und zeigt jeden Server von dir an.
 
-For more detailed documentation on the API routes of the Pterodactyl API, you can check out this website: [https://dashflo.net/docs/api/pterodactyl/v1/](https://dashflo.net/docs/api/pterodactyl/v1/https://dashflo.net/docs/api/pterodactyl/v1/)
+Für eine detailliertere Dokumentation über die API-Möglichkeiten, schaue auf die [Pterodactyl API Dokumentation](https://dashflo.net/docs/api/pterodactyl/v1/).

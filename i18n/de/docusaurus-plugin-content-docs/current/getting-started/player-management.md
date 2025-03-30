@@ -3,36 +3,36 @@ pagination_next: getting-started/plugin-management
 pagination_prev: getting-started/group-management
 ---
 
-# Player Management
+# Spielerverwaltung
 
-##### This guide will explain how to use the player management
+##### Diese Seite erklärt dir, wie die Spielerverwaltung genutzt wird.
 
-When running a realm, managing its players is crucial for keeping a stable community. An easy way to do that is by using the player management system.
+Beim öffentlichen Realms ist die Spielerverwaltung wichtig für ein bestmögliches Spielerlebnis.
 
-You access it by once again executing the <code>/realm</code> command in game, and then you click the player icon in the bottom left corner.
+Öffne zuerst die Realm-Oberfläche mit `/realm`. Nun klicke auf den Knopf "Spielerverwaltung".
 
-### Overview
+### Übersicht
 
-Now you see a list of the players who've joined your realm at one point. In the bottom left corner, you can filter the players between the following categories: "all", "online" and "banned". In the bottom right corner you can search for a specific player, and they'll be shown regardless of whether they've been on the realm or not.
+Wenn die Spielerverwaltung geöffnet wird, werden standardmäßig alle Spieler angezeigt, die je auf deinem Realm waren. Unten links können diese allerdings noch gefiltert werden. Es gibt die Möglichkeit nur Spieler anzuzeigen, die auf dem Realm sind und alle gesperrten Spieler anzuzeigen. Unten rechts kann nach einem Spieler gesucht werden. Dabei spielt es keine Rolle, ob dieser je auf deinem Realm war.
 
-### How to manage a player
+### Wie kann ich einen Spieler verwalten?
 
-By clicking on a player's head or by searching for them using the search function mentioned earlier, you'll be shown a small overview where you can see the player's name, their primary group, and a few buttons at the bottom. Let's go through all of them one by one.
+Beim Anklicken eines Spielerkopfes oder beim Suchen nach einem Spieler wird eine Übersicht über den Spieler geöffnet. Du sieht direkt den Spielernamen, die höchste Gruppe und ein paar weitere Knöpfe, welche unten näher erläutert werden.
 
-##### Assign groups
+##### Gruppen vergeben
 
-Using the player overview, you're also able to assign groups to players. Click the edit icon next to the player's primary group name, and you'll be shown a GUI where you can select the groups to add to said player.
+Mit der Spielerverwaltung können Gruppen an Spieler vergeben werden. Klicke dazu auf den Stift neben der höchsten Gruppe des Spielers. In der geöffneten Liste kann jede Gruppe zugewiesen oder abgewiesen werden.
 
-##### Teleport to player
+##### Zu Spielern teleportieren
 
-It teleports you to the player. Doesn't work if the player is offline.
+Sollte der Spieler auf deinem Realm sein, kannst du mit dem linken Knopf zum Spieler teleportieren.
 
-##### Kick player
+##### Spieler vom Realm werfen
 
-It kicks the player from the realm. They'll be able to join back.
+Der mittlere Knopf wirft den Spieler von dem Realm. Dieser Spieler kann allerdings auch den Realm wieder betreten.
 
-##### Ban player
+##### Spieler sperren
 
-It bans the player from the realm. You're also able to select the ban reason and the ban duration. Once a player is banned, they won't be able to join the realm unless they've been unbanned.
+Mit dem rechten Knopf kann ein Spieler vom Realm gesperrt werden. Es wird ein weiteres Menu geöffnet, um Grund und Dauer einzustellen. Sobald der Spieler gesperrt ist, kann dieser den Realm nicht erneut betreten.
 
-If a player is banned from the realm, you can unban them by clicking the button "Unban player". They'll be unbanned, no matter how long their ban duration was, and they'll be able to join the realm.
+Sollte allerdings der Spieler bereits vom Realm gesperrt sein, kann mit diesem Knopf der Spieler entsperrt werden. Danach kann der Spieler wie gewohnt den Realm wieder betreten.

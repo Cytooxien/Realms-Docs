@@ -2,7 +2,7 @@
 pagination_next: getting-started/create-your-first-realm
 ---
 
-# Introduction
+# Einleitung
 
-<p>Welcome to the official Cytooxien Realms documentation.</p>
-TODO: write a good introduction
+<p>Willkommen zur offiziellen Cytooxien Realms Dokumentation.</p>
+TODO: eine gute Einleitung schreiben

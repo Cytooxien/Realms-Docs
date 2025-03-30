@@ -3,6 +3,6 @@ pagination_next: null
 pagination_prev: getting-started/plugin-management
 ---
 
-# World Management
+# Weltenverwaltung
 
-##### This guide will explain how to manage multiple worlds on your realm.
+##### Diese Seite erklärt, wie verschiedene Welten auf deinem Realm konfigurierbar sind.

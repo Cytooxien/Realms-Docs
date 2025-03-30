@@ -3,47 +3,47 @@ pagination_next: web-interface/profile
 pagination_prev: web-interface/file-manager
 ---
 
-# Other features
+# Andere Tabs
 
-##### Explanations of other features the web interface offers
+##### Erklärung aller anderen Tabs des Web-Interfaces
 
-## Properties
+## Eigenschaften
 
-This tab shows information about the realm.
+Dieser Tab zeigt Informationen über den Realm.
 
-| Name           | Description                                                                                                       |
-|----------------|-------------------------------------------------------------------------------------------------------------------|
-| Realm ID       | The unique identifier for the realm. If you experience technical issues, developers will need this to assist you. |
-| Owner Name     | The player who owns the realm.                                                                                    |
-| Boost Level    | The current boost level of the realm.                                                                             |
-| Server Version | The Minecraft version the realm is running.                                                                       |
-| Paused         | Indicates whether the realm is paused.                                                                            |
+| Name           | Beschreibung                                                                                                  |
+|----------------|---------------------------------------------------------------------------------------------------------------|
+| Realm ID       | Der einzigartige Kennwert. Sollte es technische Probleme geben, benötigen Entwickler diesen um dir zu helfen. |
+| Owner Name     | Der Spieler, dem dieser Realm gehört.                                                                         |
+| Boost Level    | Das aktuelle Boost-Level des Realms.                                                                          |
+| Server Version | Die aktuelle Minecraft Version.                                                                               |
+| Paused         | Zeigt, ob der Realm aktuell pausiert ist.                                                                     |
 
-## Settings
+## Einstellungen
 
-This tab shows server-related information for the realm.
+Dieser Tab zeigt Informationen über den Server des Realms.
 
-You can also use SFTP to access the realm's files. The password for SFTP is your [profile](./profile) password.
+Hier kannst du mit SFTP auf die Dateien des Realms zugreifen. Das Passwort hierfür ist dasselbe wie für dein [Profil](./profile.md)
 
-## Activity
+## Aktivitäten
 
-This tab shows the actions of players with realm access. If there are file issues, you can trace which user made the change.
+Dieser Tab zeigt die Aktionen aller Spieler mit Zugriff auf deinen Realm. Sollte es Dateifehler geben, kannst du hier herausfinden, wer das Problem hervorgerufen hat.
 
-The log will automatically reset if the realm is unloaded.
+Das Protokoll löscht sich automatisch beim entladen des Realms.
 
-| Type                           | Description                                        |
-|--------------------------------|----------------------------------------------------|
-| `server:subuser.create`        | A new user was created (user logged in).           |
-| `server:console.command`       | A user executed a command.                         |
-| `server:power.stop`            | A user stopped the server.                         |
-| `server:power.restart`         | A user restarted the server.                       |
-| `server:power.start`           | A user started the server.                         |
-| `server:file.read`             | A user viewed a file's content.                    |
-| `server:file.write`            | A user modified or created a file.                 |
-| `server:file.create-directory` | A user created a directory.                        |
-| `server:file.delete`           | A user deleted a file.                             |
-| `server:file.rename`           | A user renamed or moved a file.                    |
-| `server:file.compress`         | A user compressed one or more files.               |
-| `server:file.decompress`       | A user decompressed an archive.                    |
-| `server:file.uploaded`         | A user uploaded a file.                            |
-| `server:file.download`         | A user downloaded a file.                          |
+| Typ                            | Beschreibung                                                          |
+|--------------------------------|-----------------------------------------------------------------------|
+| `server:subuser.create`        | Ein neuer Benutzer wurde erstellt. (Ein Spieler hat sich eingeloggt). |
+| `server:console.command`       | Ein Benutzer führte einen Befehl aus.                                 |
+| `server:power.stop`            | Ein Benutzer stoppte den Server.                                      |
+| `server:power.restart`         | Ein Benutzer startete den Server neu.                                 |
+| `server:power.start`           | Ein Benutzer startete den Server.                                     |
+| `server:file.read`             | Ein Benutzer schaue sich einen Dateiinhalt.                           |
+| `server:file.write`            | Ein Benutzer modifizierte oder erstellte eine Datei.                  |
+| `server:file.create-directory` | Ein Benutzer erstelle einen Ordner.                                   |
+| `server:file.delete`           | Ein Benutzer löschte eine Datei.                                      |
+| `server:file.rename`           | Ein Benutzer benannte eine Datei um oder verschiebte eine Datei.      |
+| `server:file.compress`         | Ein Benutzer archivierte eine oder mehrere Dateien.                   |
+| `server:file.decompress`       | Ein Benutzer entpackte ein Archiv.                                    |
+| `server:file.uploaded`         | Ein Benutzer lud eine Datei hoch.                                     |
+| `server:file.download`         | Ein Benutzer lad eine Datei herunter.                                 |

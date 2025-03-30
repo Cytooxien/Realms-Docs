@@ -3,46 +3,46 @@ pagination_next: web-interface/file-manager
 pagination_prev: null
 ---
 
-# Console
+# Konsole
 
-##### An explanation of the features the console page offers
+##### Eine Erklärung der Konsole
 
 [//]: # (![console]&#40;console.png&#41;)
 
-The console shows important information about your realm. You can view the console output of the server and execute commands.
-If there's a problem, the console gives important details to help others fix it.
+Die Konsole zeigt wichtige Informationen über deinen Realm. Du kannst die Konsole des Servers sehen und Befehle eingeben.
+Sollte es ein Problem geben, kann die Konsole wichtige Details für helfende bereitstellen.
 
-The sidebar is split into several sections:
+Die Seitenleiste hat verschiedene Bereiche:
 
-1. **Realm Controls:**  
-   The four buttons at the top let you start, restart, stop, or unload your realm.
+1. **Realm Steuerung:**  
+   Die vier Knöpfe oben können den Realm starten, neu starten, stoppen oder entladen.
 
-2. **Uptime:**  
-   Shows how long your realm has been running.
-   Your realm could also be paused. That means it hasn't been used for a long time.
-   Once a player joins, the server continues like normal.
+2. **Betriebszeit:**  
+   Zeigt, wie lange dein Realm bereits läuft.
+   Dein Realm könnte auch pausiert sein, das heißt, dass dein Realm lange Zeit nicht genutzt wurde.
+   Sollte dein Spieler den Realm betreten, verhält sich der Realm wieder normal.
 
-3. **CPU Usage:**  
-   Shows how much CPU your realm is using.
-   If you see a ⚡ icon, it means your realm is in Turbo Launch mode, which makes it start faster.
+3. **CPU Auslastung:**  
+   Zeigt, wie viel CPU dein Realm benutzt.
+   Wenn dort ein ⚡ Symbol ist, befindet sich der Realm im Turbo Launch Modus und startet dadurch schneller.
 
-4. **RAM Usage:**  
-   Shows how much RAM your realm is using and how much is available.
+4. **Arbeitsspeicher:**  
+   Zeigt, wie viel des Arbeitsspeichers genutzt wird und wie viel es insgesamt gibt.
 
-5. **Disk Usage:**  
-   Shows how much of the realm's hard drive is being used.
-   If this goes over the limit, your realm will stop.
+5. **Festplatte:**  
+   Zeigt, wie viel Speicherplatz genutzt wird und wie viel es insgesamt gibt. 
+   Sollte dieser Wert über das Maximum gehen, stoppt der Realm automatisch.
 
-6. **Incoming Network Data:**  
-   Shows how much traffic is coming into your realm.
+6. **Eingehende Netzwerk Daten:**  
+   Zeigt wie viele Daten der Realm erhält.
 
-7. **Outgoing Network Data:**  
-   Shows how much traffic is going out of your realm.
+7. **Ausgehende Netzwerk Daten:**  
+   Zeigt wie viele Daten der Realm sendet.
 
-8. **Boost Count:**  
-   Shows how many boosts your realm has.
+8. **Boosts:**  
+   Zeigt, wie viele Boosts dein Realm hat.
 
-9. **Online Players:**  
-   Shows who's currently online on your realm.
+9. **Online Spieler:**  
+   Zeigt, wer aktuell auf dem Realm ist.
 
-Below the console, you can see graphs showing the history of CPU, RAM, and network usage.
+Unter der Konsole sind Graphen, die den Verlauf von CPU, Arbeitsspeicher und Netzwerkdaten zeigen.

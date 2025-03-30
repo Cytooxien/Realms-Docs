@@ -4,68 +4,68 @@ pagination_prev: web-interface/file-manager
 ---
 
 
-# Advanced Configuration
+# Spezielle Konfigurationen
 
-##### To configure your realm even further, you need to edit files in the web interface. Here you'll find an explanation how to do so
+##### Um deinen Realm noch weiter zu konfigurieren, müssen Dateien im Web-Interface geändert werden, Hier findest du eine Erklärung dafür.
 
-For Minecraft configurations, refer to [Paper's documentation](https://docs.papermc.io/paper/reference/configuration).
+Für Minecraftkonfigurationen, schaue auf die [Paper Dokumentation](https://docs.papermc.io/paper/reference/configuration).
 
 ## realm.yml
 
-| Key                        | Type            | Description                                                                                                                                           |
-|----------------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `HandleChat`               | Boolean         | Whether Cytooxien should handle and format chat messages.                                                                                             |
-| `LoadPredefinedPlugins`    | List of Strings | List of predefined plugins to load.                                                                                                                   |
-| `DisplaySystem.showGroups` | Boolean         | Whether to format the player's name based on their group. If disabled, color depends on the [Minecraft team](https://minecraft.wiki/w/Commands/team). |
-| `SendJoinHelp`             | Boolean         | Whether to send a join help message to admins.                                                                                                        |
+| Schlüssel                  | Typ             | Beschreibung                                                                                                                                                       |
+|----------------------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `HandleChat`               | Boolean         | Legt fest, ob Cytooxien Chatnachrichten formatieren soll.                                                                                                          |
+| `LoadPredefinedPlugins`    | List of Strings | Liste von vordefinierten Plugins, die geladen werden sollen.                                                                                                       |
+| `DisplaySystem.showGroups` | Boolean         | Legt fest, ob Gruppen angezeigt werden sollen. Sollte dies deaktiviert sein, ist die Farbe vom [Minecraft Team](https://de.minecraft.wiki/w/Befehl/team) abhängig. |
+| `SendJoinHelp`             | Boolean         | Legt fest, ob die Beitrittshilfe gesendet werden soll.                                                                                                             |
 
 ## realm-messages.yml
 
-| Key                         | Type   | Description                                                                                                                                |
-|-----------------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| `Messages.playerJoin.de`    | String | Join message for players who have selected German as their primary language. Use `%player%` as a placeholder for the player's name.        |
-| `Messages.playerJoin.de-AT` | String | Join message for players who have selected Austrian as their primary language. Use `%player%` as a placeholder for the player's name.      |
-| `Messages.playerJoin.de-CH` | String | Join message for players who have selected Swiss German as their primary language. Use `%player%` as a placeholder for the player's name.  |
-| `Messages.playerJoin.en`    | String | Join message for players who have selected English as their primary language. Use `%player%` as a placeholder for the player's name.       |
-| `Messages.playerJoin.fr`    | String | Join message for players who have selected French as their primary language. Use `%player%` as a placeholder for the player's name.        |
-| `Messages.playerJoin.it`    | String | Join message for players who have selected Italian as their primary language. Use `%player%` as a placeholder for the player's name.       |
-| `Messages.playerJoin.mxn`   | String | Join message for players who have selected `Memetooxien` as their primary language. Use `%player%` as a placeholder for the player's name. |
-| `Messages.playerJoin.ru`    | String | Join message for players who have selected Russian as their primary language. Use `%player%` as a placeholder for the player's name.       |
-| `Messages.playerLeft.de`    | String | Quit message for players who have selected German as their primary language. Use `%player%` as a placeholder for the player's name.        |
-| `Messages.playerLeft.de-AT` | String | Quit message for players who have selected Austrian as their primary language. Use `%player%` as a placeholder for the player's name.      |
-| `Messages.playerLeft.de-CH` | String | Quit message for players who have selected Swiss German as their primary language. Use `%player%` as a placeholder for the player's name.  |
-| `Messages.playerLeft.en`    | String | Quit message for players who have selected English as their primary language. Use `%player%` as a placeholder for the player's name.       |
-| `Messages.playerLeft.fr`    | String | Quit message for players who have selected French as their primary language. Use `%player%` as a placeholder for the player's name.        |
-| `Messages.playerLeft.it`    | String | Quit message for players who have selected Italian as their primary language. Use `%player%` as a placeholder for the player's name.       |
-| `Messages.playerLeft.mxn`   | String | Quit message for players who have selected `Memetooxien` as their primary language. Use `%player%` as a placeholder for the player's name. |
-| `Messages.playerLeft.ru`    | String | Quit message for players who have selected Russian as their primary language. Use `%player%` as a placeholder for the player's name.       |
+| Schlüssel                   | Typ    | Beschreibung                                                                                                                                            |
+|-----------------------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Messages.playerJoin.de`    | String | Nachricht beim Betreten des Realms für Spieler, die Deutsch als Sprache gewählt haben. Nutze `%player%` als Platzhalter für den Spielernamen.           |
+| `Messages.playerJoin.de-AT` | String | Nachricht beim Betreten des Realms für Spieler, die Österreichisch als Sprache gewählt haben. Nutze `%player%` als Platzhalter für den Spielernamen.    |
+| `Messages.playerJoin.de-CH` | String | Nachricht beim Betreten des Realms für Spieler, die Schweizerdeutsch als Sprache gewählt haben. Nutze `%player%` als Platzhalter für den Spielernamen.  |
+| `Messages.playerJoin.en`    | String | Nachricht beim Betreten des Realms für Spieler, die Englisch als Sprache gewählt haben. Nutze `%player%` als Platzhalter für den Spielernamen.          |
+| `Messages.playerJoin.fr`    | String | Nachricht beim Betreten des Realms für Spieler, die Französisch als Sprache gewählt haben. Nutze `%player%` als Platzhalter für den Spielernamen.       |
+| `Messages.playerJoin.it`    | String | Nachricht beim Betreten des Realms für Spieler, die Italienisch als Sprache gewählt haben. Nutze `%player%` als Platzhalter für den Spielernamen.       |
+| `Messages.playerJoin.mxn`   | String | Nachricht beim Betreten des Realms für Spieler, die `Memetooxien` als Sprache gewählt haben. Nutze `%player%` als Platzhalter für den Spielernamen.     |
+| `Messages.playerJoin.ru`    | String | Nachricht beim Betreten des Realms für Spieler, die Russisch als Sprache gewählt haben. Nutze `%player%` als Platzhalter für den Spielernamen.          |
+| `Messages.playerLeft.de`    | String | Nachricht beim Verlassen des Realms für Spieler, die Deutsch als Sprache gewählt haben. Nutze `%player%` als Platzhalter für den Spielernamen.          |
+| `Messages.playerLeft.de-AT` | String | Nachricht beim Verlassen des Realms für Spieler, die Österreichisch als Sprache gewählt haben. Nutze `%player%` als Platzhalter für den Spielernamen.   |
+| `Messages.playerLeft.de-CH` | String | Nachricht beim Verlassen des Realms für Spieler, die Schweizerdeutsch als Sprache gewählt haben. Nutze `%player%` als Platzhalter für den Spielernamen. |
+| `Messages.playerLeft.en`    | String | Nachricht beim Verlassen des Realms für Spieler, die Englisch als Sprache gewählt haben. Nutze `%player%` als Platzhalter für den Spielernamen.         |
+| `Messages.playerLeft.fr`    | String | Nachricht beim Verlassen des Realms für Spieler, die Französisch als Sprache gewählt haben. Nutze `%player%` als Platzhalter für den Spielernamen.      |
+| `Messages.playerLeft.it`    | String | Nachricht beim Verlassen des Realms für Spieler, die Italienisch als Sprache gewählt haben. Nutze `%player%` als Platzhalter für den Spielernamen.      |
+| `Messages.playerLeft.mxn`   | String | Nachricht beim Verlassen des Realms für Spieler, die `Memetooxien` als Sprache gewählt haben. Nutze `%player%` als Platzhalter für den Spielernamen.    |
+| `Messages.playerLeft.ru`    | String | Nachricht beim Verlassen des Realms für Spieler, die Russisch als Sprache gewählt haben. Nutze `%player%` als Platzhalter für den Spielernamen.         |
 
 ## worlds.yml
 
-Managed via the [World Management](../getting-started/world-management).
+Verwaltbar über die [Weltenverwaltung](../getting-started/world-management).
 
-| Key      | Type           | Description                            |
-|----------|----------------|----------------------------------------|
-| `worlds` | List of worlds | See below for world details.           |
+| Schlüssel | Typ              | Beschreibung            |
+|-----------|------------------|-------------------------|
+| `worlds`  | Liste von Welten | Siehe unten für Details |
 
-**world**:
+**Welt**:
 
-| Key                          | Type    | Description                                   |
-|------------------------------|---------|-----------------------------------------------|
-| `seed`                       | Long    | World seed                                    |
-| `structures`                 | Boolean | Whether structures are generated              |
-| `icon`                       | String  | World icon                                    |
-| `type`                       | String  | World type                                    |
-| `rules.weather_rhythm`       | Boolean | Whether the weather follows a rhythm          |
-| `rules.weather_lightning`    | Boolean | Whether thunderstorms can spawn lightning     |
-| `rules.blockdamage_hostile`  | Boolean | Whether hostile mobs can destroy blocks       |
-| `rules.blockdamage_tnt`      | Boolean | Whether TNT can destroy blocks                |
-| `rules.blockdamage_friendly` | Boolean | Whether friendly mobs can destroy blocks      |
-| `rules.player_damage`        | Boolean | Whether players can take damage               |
-| `rules.pvp`                  | Boolean | Whether players can PvP                       |
-| `rules.natural_hunger`       | Boolean | Whether players experience hunger             |
-| `loaded`                     | Boolean | Whether the world is loaded                   |
-| `environment`                | String  | World environment (e.g., normal, nether, end) |
-| `name`                       | String  | World name                                    |
-| `internalname`               | String  | World directory                               |
-| `uuid`                       | String  | World UUID                                    |
+| Schlüssel                    | Typ     | Beschreibung                                               |
+|------------------------------|---------|------------------------------------------------------------|
+| `seed`                       | Long    | Startwert der Welt                                         |
+| `structures`                 | Boolean | Legt fest, ob Strukturen generiert werden sollen           |
+| `icon`                       | String  | Welten Icon                                                |
+| `type`                       | String  | Welten Typ                                                 |
+| `rules.weather_rhythm`       | Boolean | Legt fest, ob das Wetter sich am Rhythms orientiert        |
+| `rules.weather_lightning`    | Boolean | Legt fest, ob Blitze erschaffen werden sollen              |
+| `rules.blockdamage_hostile`  | Boolean | Legt fest, ob feindliche Kreaturen Blöcke zerstören können |
+| `rules.blockdamage_tnt`      | Boolean | Legt fest, ob TNT Blöcke zerstören kann                    |
+| `rules.blockdamage_friendly` | Boolean | Legt fest, ob friedliche Kreaturen Blöcke zerstören können |
+| `rules.player_damage`        | Boolean | Legt fest, ob Spieler Schaden bekommen können              |
+| `rules.pvp`                  | Boolean | Legt fest, ob Spieler sich bekämpfen können                |
+| `rules.natural_hunger`       | Boolean | Legt fest, ob Spieler Hunger bekommen sollen               |
+| `loaded`                     | Boolean | Legt fest, ob die Welt geladen ist                         |
+| `environment`                | String  | Welten Typ (z.B., normal, nether, end)                     |
+| `name`                       | String  | Welten Name                                                |
+| `internalname`               | String  | Welten Ordner                                              |
+| `uuid`                       | String  | Welten UUID                                                |
