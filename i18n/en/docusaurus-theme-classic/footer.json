@@ -1,0 +1,30 @@
+{
+  "link.title.Docs": {
+    "message": "Docs",
+    "description": "The title of the footer links column with title=Docs in the footer"
+  },
+  "link.title.Community": {
+    "message": "Community",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.More": {
+    "message": "More",
+    "description": "The title of the footer links column with title=More in the footer"
+  },
+  "link.item.label.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label of footer link with label=Getting Started linking to /docs/getting-started"
+  },
+  "link.item.label.Cytooxien Discord": {
+    "message": "Cytooxien Discord",
+    "description": "The label of footer link with label=Cytooxien Discord linking to https://discord.gg/cytooxien"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/Cytooxien/Realms-Docs"
+  },
+  "copyright": {
+    "message": "Copyright © 2025 Cytooxien. Built with Docusaurus.",
+    "description": "The footer copyright"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.mainSidebar.category.Getting Started": {
+    "message": "Erste Schritte",
+    "description": "Das Label für die Kategorie Erste Schritte in der Sidebar"
+  },
+  "sidebar.mainSidebar.category.Web Interface": {
+    "message": "Web Interface",
+    "description": "Das Label für die Kategorie Web Interface in der Sidebar"
+  }
+}

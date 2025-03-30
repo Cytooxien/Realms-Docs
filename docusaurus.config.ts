@@ -21,11 +21,15 @@ const config: Config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'de'],
     localeConfigs: {
       en: {
         htmlLang: 'en-US',
         label: 'English'
+      },
+      de: {
+        htmlLang: 'de',
+        label: 'Deutsch'
       }
     }
   },

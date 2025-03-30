@@ -11,15 +11,23 @@ $ npm install
 ### Local Development
 
 ```
-$ npm run start
+$ docusaurus start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
+### Local Development with german translations
+
+```
+$ docusaurus start --locale de
+```
+
+This command also starts a development server but with the german translations.
+
 ### Build
 
 ```
-$ npm run build
+$ docusaurus build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.

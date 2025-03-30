@@ -1,0 +1,71 @@
+---
+pagination_next: web-interface/other-tabs
+pagination_prev: web-interface/file-manager
+---
+
+
+# Advanced Configuration
+
+##### To configure your realm even further, you need to edit files in the web interface. Here you'll find an explanation how to do so
+
+For Minecraft configurations, refer to [Paper's documentation](https://docs.papermc.io/paper/reference/configuration).
+
+## realm.yml
+
+| Key                        | Type            | Description                                                                                                                                           |
+|----------------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `HandleChat`               | Boolean         | Whether Cytooxien should handle and format chat messages.                                                                                             |
+| `LoadPredefinedPlugins`    | List of Strings | List of predefined plugins to load.                                                                                                                   |
+| `DisplaySystem.showGroups` | Boolean         | Whether to format the player's name based on their group. If disabled, color depends on the [Minecraft team](https://minecraft.wiki/w/Commands/team). |
+| `SendJoinHelp`             | Boolean         | Whether to send a join help message to admins.                                                                                                        |
+
+## realm-messages.yml
+
+| Key                         | Type   | Description                                                                                                                                |
+|-----------------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| `Messages.playerJoin.de`    | String | Join message for players who have selected German as their primary language. Use `%player%` as a placeholder for the player's name.        |
+| `Messages.playerJoin.de-AT` | String | Join message for players who have selected Austrian as their primary language. Use `%player%` as a placeholder for the player's name.      |
+| `Messages.playerJoin.de-CH` | String | Join message for players who have selected Swiss German as their primary language. Use `%player%` as a placeholder for the player's name.  |
+| `Messages.playerJoin.en`    | String | Join message for players who have selected English as their primary language. Use `%player%` as a placeholder for the player's name.       |
+| `Messages.playerJoin.fr`    | String | Join message for players who have selected French as their primary language. Use `%player%` as a placeholder for the player's name.        |
+| `Messages.playerJoin.it`    | String | Join message for players who have selected Italian as their primary language. Use `%player%` as a placeholder for the player's name.       |
+| `Messages.playerJoin.mxn`   | String | Join message for players who have selected `Memetooxien` as their primary language. Use `%player%` as a placeholder for the player's name. |
+| `Messages.playerJoin.ru`    | String | Join message for players who have selected Russian as their primary language. Use `%player%` as a placeholder for the player's name.       |
+| `Messages.playerLeft.de`    | String | Quit message for players who have selected German as their primary language. Use `%player%` as a placeholder for the player's name.        |
+| `Messages.playerLeft.de-AT` | String | Quit message for players who have selected Austrian as their primary language. Use `%player%` as a placeholder for the player's name.      |
+| `Messages.playerLeft.de-CH` | String | Quit message for players who have selected Swiss German as their primary language. Use `%player%` as a placeholder for the player's name.  |
+| `Messages.playerLeft.en`    | String | Quit message for players who have selected English as their primary language. Use `%player%` as a placeholder for the player's name.       |
+| `Messages.playerLeft.fr`    | String | Quit message for players who have selected French as their primary language. Use `%player%` as a placeholder for the player's name.        |
+| `Messages.playerLeft.it`    | String | Quit message for players who have selected Italian as their primary language. Use `%player%` as a placeholder for the player's name.       |
+| `Messages.playerLeft.mxn`   | String | Quit message for players who have selected `Memetooxien` as their primary language. Use `%player%` as a placeholder for the player's name. |
+| `Messages.playerLeft.ru`    | String | Quit message for players who have selected Russian as their primary language. Use `%player%` as a placeholder for the player's name.       |
+
+## worlds.yml
+
+Managed via the [World Management](../getting-started/world-management).
+
+| Key      | Type           | Description                            |
+|----------|----------------|----------------------------------------|
+| `worlds` | List of worlds | See below for world details.           |
+
+**world**:
+
+| Key                          | Type    | Description                                   |
+|------------------------------|---------|-----------------------------------------------|
+| `seed`                       | Long    | World seed                                    |
+| `structures`                 | Boolean | Whether structures are generated              |
+| `icon`                       | String  | World icon                                    |
+| `type`                       | String  | World type                                    |
+| `rules.weather_rhythm`       | Boolean | Whether the weather follows a rhythm          |
+| `rules.weather_lightning`    | Boolean | Whether thunderstorms can spawn lightning     |
+| `rules.blockdamage_hostile`  | Boolean | Whether hostile mobs can destroy blocks       |
+| `rules.blockdamage_tnt`      | Boolean | Whether TNT can destroy blocks                |
+| `rules.blockdamage_friendly` | Boolean | Whether friendly mobs can destroy blocks      |
+| `rules.player_damage`        | Boolean | Whether players can take damage               |
+| `rules.pvp`                  | Boolean | Whether players can PvP                       |
+| `rules.natural_hunger`       | Boolean | Whether players experience hunger             |
+| `loaded`                     | Boolean | Whether the world is loaded                   |
+| `environment`                | String  | World environment (e.g., normal, nether, end) |
+| `name`                       | String  | World name                                    |
+| `internalname`               | String  | World directory                               |
+| `uuid`                       | String  | World UUID                                    |
