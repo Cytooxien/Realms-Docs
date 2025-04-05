@@ -18,7 +18,8 @@ const sidebars: SidebarsConfig = {
                 "getting-started/group-management",
                 "getting-started/player-management",
                 "getting-started/plugin-management",
-                "getting-started/world-management"
+                "getting-started/world-management",
+                "getting-started/realm-lobby",
             ]
         },
         {

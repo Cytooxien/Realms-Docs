@@ -7,7 +7,7 @@ pagination_prev: null
 
 ##### This guide will explain to you how to create your first realm
 
-To create your first realm, first you need to go to the Realms lobby. There, you'll see an NPC on the right with the title "My Realms".
+To create your first realm, first you need to go to the [Realms lobby](./realm-lobby). There, you'll see an NPC on the right with the title "My Realms".
 
 ![My realms npc](../../static/img/en/getting-started/npc.png)
 

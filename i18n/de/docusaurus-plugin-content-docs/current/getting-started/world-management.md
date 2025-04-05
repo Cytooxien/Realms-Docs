@@ -1,5 +1,5 @@
 ---
-pagination_next: null
+pagination_next: getting-started/realm-lobby
 pagination_prev: getting-started/plugin-management
 ---
 
