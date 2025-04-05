@@ -38,7 +38,7 @@
 }
 
 p {
-    margin-top: -1.8125vh;
+    margin-top: -1vh;
 }
 
 a {
@@ -138,4 +138,11 @@ h5 {
 .footer__copyright {
     color: #737373;
     font-size: small;
+}
+
+.img_ev3q {
+    height: 7.5vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
