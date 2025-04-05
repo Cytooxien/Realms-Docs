@@ -20,6 +20,7 @@ const sidebars: SidebarsConfig = {
                 "getting-started/plugin-management",
                 "getting-started/world-management",
                 "getting-started/realm-lobby",
+                "getting-started/boosts"
             ]
         },
         {

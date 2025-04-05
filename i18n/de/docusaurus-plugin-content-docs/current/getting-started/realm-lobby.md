@@ -23,22 +23,5 @@ Dieses Menu zeigt alle Realms, die dir gehören oder die du favorisiert hast. Du
 
 ## Realm Menu
 
-Mit einem Linksklick auf einen Realm öffnet sich ein externes Menu, in dem man dem Realm beitreten kann und ihn direkt boosten kann. Sollte man die benötigten Berechtigungen haben, ist es möglich den Realm zu verwalten. Du kannst direkt [Einstellungen](./settings) vornehmen oder das [Web-Interface](../web-interface) öffnen. Es gibt außerdem die Möglichkeit, den Realm zu starten, zu stoppen, neuzustarten oder zu entladen.
-Solltest du `Premium+` haben, kannst du einen beliebigen Realm kostenlos monatlich boosten.
-
-## Boosts
-
-Ein Spieler kann einen Boost für einen Realm mit 200 Rubinen kaufen oder hat mit `Premium+` einen kostenlosen Boost monatlich. Mit einem Boost kannst du deinen Lieblingsrealm unterstützen.
-
-Das Boost-Level legt Limitationen für den Realm fest.
-
-| Level | Besonderheit    | Max. Spieler | Max. Welten | Max. Gruppen | Max. Plug-Ins | Wiederherstellungs-punkte | Entladung Nach Inaktivität | RAM (GB) | Speicherplatz (GB) |
-|-------|-----------------|--------------|-------------|--------------|---------------|---------------------------|----------------------------|----------|--------------------|
-| 0     |                 | 5            | 1           | 1            | 3             | 1                         | Sehr schnell               | 2        | 2                  |
-| 1     | Eigene Plug-Ins | 10           | 2           | 2            | 5             | 2                         | eine Stunde                | 3        | 4                  |
-| 3     | Farbige Namen   | 15           | 3           | 3            | 10            | 3                         | 2 Stunden                  | 4        | 6                  |
-| 5     |                 | 20           | 4           | 5            | 12            | 5                         | 3 Stunden                  | 5        | 8                  |
-| 10    | Subdomain       | 30           | 5           | 10           | 15            | 8                         | 4 Stunden                  | 6        | 15                 |
-| 15    |                 | 40           | 6           | 15           | 20            | 10                        | 7 Stunden                  | 8        | 20                 |
-| 20    |                 | 50           | 7           | 20           | 25            | 12                        | 12 Stunden                 | 10       | 30                 |
-| 25    |                 | 100          | 11          | 100          | 100           | 15                        | Nie                        | 14       | 50                 |
+Mit einem Linksklick auf einen Realm öffnet sich ein externes Menu, in dem man dem Realm beitreten kann und ihn direkt boosten kann. Sollte man die benötigten Berechtigungen haben, ist es möglich, den Realm zu verwalten. Du kannst direkt [Einstellungen](./settings) vornehmen oder das [Web-Interface](../web-interface) öffnen. Es gibt außerdem die Möglichkeit, den Realm zu starten, zu stoppen, neuzustarten oder zu entladen.
+Solltest du den `Premium+` Rang haben, kannst du einen beliebigen Realm kostenlos monatlich boosten. Eine Erklärung der Boost-Vorteile lässt sich [hier](./boosts) finden.
