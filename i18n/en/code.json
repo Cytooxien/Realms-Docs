@@ -55,13 +55,13 @@
     "message": "light mode",
     "description": "The name for the light color mode"
   },
-  "theme.docs.breadcrumbs.navAriaLabel": {
-    "message": "Breadcrumbs",
-    "description": "The ARIA label for the breadcrumbs"
-  },
   "theme.docs.DocCard.categoryDescription.plurals": {
     "message": "1 item|{count} items",
     "description": "The default description for a category card in the generated index about how many items this category includes"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "Breadcrumbs",
+    "description": "The ARIA label for the breadcrumbs"
   },
   "theme.docs.paginator.navAriaLabel": {
     "message": "Docs pages",
@@ -134,10 +134,6 @@
     "message": "Tags:",
     "description": "The label alongside a tag list"
   },
-  "theme.AnnouncementBar.closeButtonAriaLabel": {
-    "message": "Close",
-    "description": "The ARIA label for close button of announcement bar"
-  },
   "theme.admonition.caution": {
     "message": "caution",
     "description": "The default label used for the Caution admonition (:::caution)"
@@ -162,13 +158,13 @@
     "message": "warning",
     "description": "The default label used for the Warning admonition (:::warning)"
   },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "Close",
+    "description": "The ARIA label for close button of announcement bar"
+  },
   "theme.blog.sidebar.navAriaLabel": {
     "message": "Blog recent posts navigation",
     "description": "The ARIA label for recent posts in the blog sidebar"
-  },
-  "theme.CodeBlock.wordWrapToggle": {
-    "message": "Toggle word wrap",
-    "description": "The title attribute for toggle word wrapping button of code block lines"
   },
   "theme.CodeBlock.copied": {
     "message": "Copied",
@@ -182,6 +178,10 @@
     "message": "Copy",
     "description": "The copy button label on code blocks"
   },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "Toggle word wrap",
+    "description": "The title attribute for toggle word wrapping button of code block lines"
+  },
   "theme.DocSidebarItem.expandCategoryAriaLabel": {
     "message": "Expand sidebar category '{label}'",
     "description": "The ARIA label to expand the sidebar category"
@@ -194,10 +194,6 @@
     "message": "Main",
     "description": "The ARIA label for the main navigation"
   },
-  "theme.TOCCollapsible.toggleButtonLabel": {
-    "message": "On this page",
-    "description": "The label used by the button on the collapsible TOC component"
-  },
   "theme.navbar.mobileLanguageDropdown.label": {
     "message": "Languages",
     "description": "The label for the mobile language switcher dropdown"
@@ -209,6 +205,10 @@
   "theme.NotFound.p2": {
     "message": "Please contact the owner of the site that linked you to the original URL and let them know their link is broken.",
     "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "On this page",
+    "description": "The label used by the button on the collapsible TOC component"
   },
   "theme.blog.post.readMore": {
     "message": "Read more",
@@ -246,6 +246,10 @@
     "message": "← Back to main menu",
     "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
   },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "message": "Toggle navigation bar",
+    "description": "The ARIA label for hamburger menu button of mobile navigation"
+  },
   "theme.docs.sidebar.expandButtonTitle": {
     "message": "Expand sidebar",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
@@ -253,10 +257,6 @@
   "theme.docs.sidebar.expandButtonAriaLabel": {
     "message": "Expand sidebar",
     "description": "The ARIA label and title attribute for expand button of doc sidebar"
-  },
-  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
-    "message": "Toggle navigation bar",
-    "description": "The ARIA label for hamburger menu button of mobile navigation"
   },
   "theme.blog.post.plurals": {
     "message": "One post|{count} posts",
