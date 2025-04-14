@@ -8,18 +8,7 @@ import Image from '@theme/IdealImage';
 
 import '../css/homepage.css';
 
-const bgImages = [
-    './img/bg/1.png',
-    './img/bg/2.png',
-    './img/bg/3.png',
-    './img/bg/4.png',
-    './img/bg/5.png',
-    './img/bg/6.png',
-    './img/bg/7.png',
-    './img/bg/8.png',
-    './img/bg/9.png',
-    './img/bg/10.png'
-];
+const bgImages:number = 31;
 
 export default function Home() {
     const { siteConfig } = useDocusaurusContext();
@@ -30,7 +19,7 @@ export default function Home() {
     useEffect(() => {
         const interval = setInterval(() => {
             setPrevBgIndex(bgIndex);
-            setBgIndex(prev => (prev + 1) % bgImages.length);
+            setBgIndex(prev => (prev + 1) % bgImages);
             setFade(true);
 
             setTimeout(() => {
@@ -43,19 +32,19 @@ export default function Home() {
 
     return (
         <Layout title="Cytooxien-Realms Wiki" description="This is the official documentation for Cytooxien Realms">
-            <main className={"main dark-theme"}>
+            <main className={"main"}>
                 <div>
                     {prevBgIndex !== null && (
                         <Image
                             key={prevBgIndex}
-                            img={bgImages[prevBgIndex]}
+                            img={`img/bg/${prevBgIndex}.png`}
                             alt={"Previous Background"}
                             className={`background-img ${fade ? 'fade-out' : 'hidden'}`}
                         />
                     )}
                     <Image
                         key={bgIndex}
-                        img={bgImages[bgIndex]}
+                        img={`img/bg/${bgIndex}.png`}
                         alt={"Current Background"}
                         className={"background-img fade-in"}
                     />
