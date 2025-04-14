@@ -5,48 +5,18 @@ import Layout from '@theme/Layout';
 // @ts-ignore
 import Image from '@theme/IdealImage';
 
-import '../css/homepage.css';
+import BackgroundImages from "@site/src/components/bg-image";
 
-const bgImages:number = 31;
+import '../css/homepage.css';
 
 export default function Home() {
     const { siteConfig } = useDocusaurusContext();
-    const [bgIndex, setBgIndex] = useState(0);
-    const [prevBgIndex, setPrevBgIndex] = useState(null);
-    const [fade, setFade] = useState(true);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setPrevBgIndex(bgIndex);
-            setBgIndex(prev => (prev + 1) % bgImages);
-            setFade(true);
-
-            setTimeout(() => {
-                setFade(false);
-            }, 3000);
-        }, 15000);
-
-        return () => clearInterval(interval);
-    }, [bgIndex]);
 
     return (
         <Layout title="Cytooxien-Realms Wiki" description="This is the community-driven documentation for Cytooxien Realms">
             <main className={"main"}>
                 <div className={"background-container"}>
-                    {prevBgIndex !== null && (
-                        <Image
-                            key={prevBgIndex}
-                            img={`img/bg/${prevBgIndex}.png`}
-                            alt={"Previous Background"}
-                            className={`background-img ${fade ? 'fade-out' : 'hidden'}`}
-                        />
-                    )}
-                    <Image
-                        key={bgIndex}
-                        img={`img/bg/${bgIndex}.png`}
-                        alt={"Current Background"}
-                        className={"background-img fade-in"}
-                    />
+                    <BackgroundImages/>
                 </div>
 
                 <div className={"card"}>
