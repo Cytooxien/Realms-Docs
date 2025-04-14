@@ -24,7 +24,7 @@ export default function BackgroundImages() {
     return (
         <>
             {bgImages.map((item, index:number) => (
-                    <Image key={index} img={`img/bg/${index}.png`} className={`background-img ${index === bgIndex ? 'visible' : 'hidden'}`}/>
+                    <Image key={index} img={`./img/bg/${index}.png`} className={`background-img ${index === bgIndex ? 'visible' : 'hidden'}`}/>
             ))}
         </>
     )
