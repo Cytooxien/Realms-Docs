@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
     title: 'Cytooxien-Realms Wiki',
-    tagline: 'The official wiki for Cytooxien Realms',
+    tagline: 'The community-driven wiki for Cytooxien Realms',
     favicon: 'favicon.png',
 
     // Set the production url of your site here

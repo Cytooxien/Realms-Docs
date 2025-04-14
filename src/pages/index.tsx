@@ -30,7 +30,7 @@ export default function Home() {
     }, [bgIndex]);
 
     return (
-        <Layout title="Cytooxien-Realms Wiki" description="This is the official documentation for Cytooxien Realms">
+        <Layout title="Cytooxien-Realms Wiki" description="This is the community-driven documentation for Cytooxien Realms">
             <main className={"main"}>
                 <div className={"background-container"}>
                     {prevBgIndex !== null && (
@@ -53,7 +53,7 @@ export default function Home() {
                     <Image img={"/XLogo_3D_14x.png"} alt={"Cytooxien Logo"} className={"logo"}/>
                     <h1 className={"title red-text"}>Cytooxien-Realms Wiki</h1>
                     <p className={"subtitle"}>
-                        Welcome to the official documentation for Cytooxien Realms!
+                        Welcome to the community-driven documentation for Cytooxien Realms!
                     </p>
                     <Link to={"./docs/getting-started"} className={"btn"}>Get Started</Link>
                 </div>
