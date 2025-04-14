@@ -72,7 +72,7 @@ const config: Config = {
                 {
                     type: 'html',
                     position: 'right',
-                    value: '<a class="navbar__item_discord" href="https://discord.gg/cytooxien"><img src="/discord-mark-white.svg" alt="Discord icon" class="navbar__item_discord_img"></a>'
+                    value: '<a class="navbar__item_discord" href="https://discord.gg/cytooxien"><img src="discord-mark-white.svg" alt="Discord icon" class="navbar__item_discord_img"></a>'
                 },
                 {
                     href: 'https://github.com/Cytooxien/Realms-Docs',

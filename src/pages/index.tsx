@@ -50,7 +50,7 @@ export default function Home() {
                 </div>
 
                 <div className={"card"}>
-                    <Image img={"/XLogo_3D_14x.png"} alt={"Cytooxien Logo"} className={"logo"}/>
+                    <Image img={"XLogo_3D_14x.png"} alt={"Cytooxien Logo"} className={"logo"}/>
                     <h1 className={"title red-text"}>Cytooxien-Realms Wiki</h1>
                     <p className={"subtitle"}>
                         Welcome to the community-driven documentation for Cytooxien Realms!
