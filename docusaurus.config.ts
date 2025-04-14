@@ -7,14 +7,11 @@ const config: Config = {
     tagline: 'The community-driven wiki for Cytooxien Realms',
     favicon: 'favicon.png',
 
-    // Set the production url of your site here
-    url: 'https://your-docusaurus-site.example.com',
-    // Set the /<baseUrl>/ pathname under which your site is served
-    // For GitHub pages deployment, it is often '/<projectName>/'
-    baseUrl: '/',
-
+    url: 'https://cytooxien.github.io',
+    baseUrl: '/Realms-Docs/',
     organizationName: 'Cytooxien',
     projectName: 'Realms-Docs',
+    trailingSlash: false,
 
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
