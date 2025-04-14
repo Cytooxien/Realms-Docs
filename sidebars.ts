@@ -3,7 +3,6 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
     // By default, Docusaurus generates a sidebar from the docs folder structure
     mainSidebar: [
-        "getting-started/create-your-first-realm",
         {
             type: "category",
             label: "Getting Started",
