@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Link from "@docusaurus/Link";
-import Translate from "@docusaurus/core/lib/client/exports/Translate";
 import Layout from '@theme/Layout';
 // @ts-ignore
 import Image from '@theme/IdealImage';
@@ -33,7 +32,7 @@ export default function Home() {
     return (
         <Layout title="Cytooxien-Realms Wiki" description="This is the official documentation for Cytooxien Realms">
             <main className={"main"}>
-                <div>
+                <div className={"background-container"}>
                     {prevBgIndex !== null && (
                         <Image
                             key={prevBgIndex}
@@ -56,7 +55,7 @@ export default function Home() {
                     <p className={"subtitle"}>
                         Welcome to the official documentation for Cytooxien Realms!
                     </p>
-                    <a href={"./docs/getting-started"} className={"btn"}>Get Started</a>
+                    <Link to={"./docs/getting-started"} className={"btn"}>Get Started</Link>
                 </div>
             </main>
         </Layout>

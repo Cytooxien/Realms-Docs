@@ -12,8 +12,8 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
     background-color: black;
-    z-index: -3;
 }
 
 .background-img {
@@ -25,7 +25,7 @@ body, html {
     object-fit: cover;
     opacity: 0;
     transition: opacity 1s ease-in-out;
-    z-index: 0;
+    z-index: -1;
     pointer-events: none;
     filter: blur(0.5vh);
 }
@@ -50,7 +50,7 @@ body, html {
 
 .card {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     background-color: var(--ifm-color-primary-bg) ;
     border: 2px solid #f04d4d;
     box-shadow: 0 0 20px rgba(240, 77, 77, 0.4);
@@ -124,6 +124,8 @@ body, html {
 .btn:hover {
     transform: scale(1.05);
     box-shadow: 0 0 16px #f04d4d;
+    color: white;
+    text-decoration: none;
 }
 
 
