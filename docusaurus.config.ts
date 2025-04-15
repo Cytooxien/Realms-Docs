@@ -51,10 +51,12 @@ const config: Config = {
         [
             '@docusaurus/plugin-ideal-image',
             {
-                quality: 70,
-                max: 1030,
+                quality: 80,
+                sizes: [1920, 1200, 1080, 828, 750, 640],
+                size: 1920,
+                max: 1920,
                 min: 640,
-                steps: 2,
+                steps: 6,
                 disableInDev: false,
             },
         ],

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Link from "@docusaurus/Link";
 import Layout from '@theme/Layout';
