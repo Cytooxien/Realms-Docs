@@ -38,7 +38,7 @@ const config: Config = {
                 docs: {
                     sidebarPath: './sidebars.ts',
                     editUrl:
-                        'https://github.com/Cytooxien/Realms-Docs/tree/main/',
+                        'https://github.com/Cytooxien/Realms-Docs/tree/master/',
                 },
                 theme: {
                     customCss: './src/css/global.css',

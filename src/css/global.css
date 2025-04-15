@@ -134,9 +134,14 @@ h5 {
 .footer {
     background-color: var(--ifm-color-primary-black);
     color: #ffffff;
+    /*height: 15vh;*/
 }
 
 .footer__link-item {
+    color: #c7c7c7;
+}
+
+.footer__link-item:hover {
     color: #c7c7c7;
 }
 
@@ -165,9 +170,9 @@ h5 {
 }
 
 .navbar__item_discord_img {
-    width: 28px;
-    height: 28px;
+    width: 3vh;
+    height: 3vh;
     position: relative;
-    right: 3px;
-    bottom: 4px;
+    right: 0.5vh;
+    bottom: 0.5vh;
 }
