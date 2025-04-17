@@ -3,28 +3,27 @@ pagination_next: administration/upload-texturepack
 pagination_prev: null
 ---
 
-# Eigenes Texturepack hochladen
+# Upload Your Own Texture Pack
 
-##### In diesem Guide zeigen wir dir Schritt für Schritt, wie du dein eigenes Texturepack hochladen kannst.
+##### In this guide, we'll show you step-by-step how to upload your own texture pack.
 
-Du hast ein eigenes Texturepack und weißt nicht, wie du es auf deinen Realm hochladen sollst? Kein Problem.
+You have your own texture pack but don't know how to upload it to your Realm? No problem.
 
+    1. Open the web interface of your Realm.
 
-    1. Öffne das Web-Interface vom Realm.
+    2. Navigate to the “Files” section.
 
-    2. Navigiere zum Bereich „Dateien“.
+    3. Look for the file called `server.properties` and click on it.
 
-    3. Suche nach der Datei server.properties und klicke darauf.
+    4. Press CTRL + F to search for the line `texturepack=`.
 
-    4. Drücke STRG + F, um nach der Zeile `texturepack=` zu suchen.
+    5. Open a new tab in your browser and search for: `minecraft texturepack host`
+    (We recommend the first result, https://mc-packs.net – but you can use any other host as well.)
 
-    5. Öffne einen neuen Tab in deinem Browser und suche nach: `minecraft texturepack host`
-    (Wir empfehlen das erste Ergebnis, https://mc-packs.net – du kannst aber auch anderen host benutzen.)
+    6. Drag and drop your texturepack or select it manually.
 
-    6. Lade dein Texturepack auf dem Hoster hoch – per Drag & Drop oder durch manuelles Auswählen.
+    7. After uploading, you will receive a download link. Copy this link.
 
-    7. Nach dem Upload bekommst du einen Download-Link. Kopiere diesen Link.
+    8. Go back to `server.properties` and paste the link after `texturepack=` (e.g., texturepack=https://yourhost.net/w3ethiswzarticleefisejawesome).
 
-    8. Geh zurück zu den `server.properties` und füge den Link hinter `texturepack=` ein (z.b: texturepack=https://yourhost.net/w3ethiswzarticleefisejawesome).)
-
-    9. Speichere die Datei und starte deinen Realm neu.
+    9. Save the file and restart your Realm.
