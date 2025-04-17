@@ -38,7 +38,24 @@ const sidebars: SidebarsConfig = {
                 "web-interface/profile",
                 "web-interface/ptero-api"
             ]
-        }
+        },
+            {
+                type: "category",
+                label: "Administration",
+                collapsed: true,
+                link: {
+                    type: "generated-index",
+                    slug: "administration"
+                },
+                items: [
+                    "administration/load-backup",
+                    "administration/create-own-backup",
+                    "administration/upload-custom-world",
+                    "administration/upload-texturepack",
+                    "administration/clean-up-realm"
+                ]
+            }
+
     ],
 };
 
