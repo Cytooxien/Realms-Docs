@@ -1,0 +1,86 @@
+---
+pagination_prev: how-to-get-help/overview
+pagination_next: how-to-get-help/troubleshooting
+---
+
+# Logdateien lesen
+
+##### Dieser Artikel wird dir beibringen, wie man Logdateien liest und versteht
+
+### Einleitung
+
+Wenn du an deinem Realm arbeitest, kann es vorkommen, dass du ein Problem hast, dessen Lösung du nicht direkt in-game herausfinden kannst, wie z.B. einen Serverabsturz oder ein Plugin, das nicht wie gewünscht funktioniert.
+Hier kommen Logdateien ins Spiel. Logdateien geben viele Informationen über den Realm und sie können immens bei der Diagnose eines Problems helfen.
+
+Um auf die Logdateien des Realms zuzugreifen, öffne den [Dateienmanager im Web Interface](../web-interface/file-manager) und öffne den `logs` Ordner. Darin findest du die Logdateien für deinen Realm.
+
+Die neueste Logdatei von deinem Realm heißt immer `latest.log` und jede vorherige Logdatei folgt dem Dateinamensformat `YYYY-MM-DD-<number>.log.gz`.
+
+Vielleicht ist dir aufgefallen, dass es einen Unterschied zwischen den Dateiendungen zwischen der `latest.log` und der weiteren Logdateien. Dies passiert, weil alle älteren Dateien komprimiert sind, um Speicherplatz zu sparen. Um sie zu dekomprimieren, wähle "Entpacken" aus.
+
+### Die Basics vom Lesen einer Logdatei
+
+Praktisch alles, was der Server dir mitteilen will, wird in eine Logdatei geschrieben. Das bedeutet, dass du die Logdatei durchlesen kannst, um herauszufinden, was auf deinem Realm passiert ist.
+
+Am Beginn einer Zeile wird immer angegeben, ob es ein Fehler, eine Warnung oder eine Mitteilung ist. Dies passiert mithilfe der Präfixe `ERROR`, `WARN` und `INFO`.
+
+Wenn du einem server-bezogenem Problem begegnest (also z.b. einem Problem mit einem Plugin oder ein Serverabsturz), hat der Server sehr wahrscheinlich etwas zu diesem Thema in die Logdatei geschrieben. Daher musst du darin auch immer anfangen, nach der Ursache des Problems zu suchen.
+
+### Fehler und ihre Ursachen finden
+
+Wenn du einem Problem begegnest, solltest du immer für `ERROR`-Meldungen in dem Server-Log suchen. Diese Nachrichten geben dir im Normalfall Aufschluss über das Problem und sie liefern teilweise schon Lösungsansätze.
+
+In vielen Fällen enthält die Fehlermeldung auch einen sogenannten Stack-Trace, sozusagen eine Auflistung an Methodenaufrufen, die zu dem Problem führten. Dies kann oft sehr sinnvoll beim Diagnostizieren von Problemen sein, da es direkt mitteilt, wo genau das Problem aufgetreten ist.
+
+Schauen wir uns mal beispielsweise eine Fehlermeldung an, die du in einer Logdatei finden könntest:
+
+```
+[14:03:44 ERROR]: Could not pass event PlayerInteractEvent to MyPlugin v1.0
+java.lang.NoClassDefFoundError: org.somelibrary.SomeClass
+    at MyPlugin.jar/com.myplugin.listener.player.PlayerInteractListener.onPlayerInteract(PlayerInteractListener.java:12) ~[MyPlugin.jar:?]
+    at com.destroystokyo.paper.event.executor.MethodHandleEventExecutor.execute(MethodHandleEventExecutor.java:40) ~[paper-api-1.21-R0.1-SNAPSHOT.jar:?]
+    at co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:77) ~[paper-api-1.21-R0.1-SNAPSHOT.jar:1.21-78-ef96a69]
+    at org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:70) ~[paper-api-1.21-R0.1-SNAPSHOT.jar:?]
+    at io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:131) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:628) ~[paper-api-1.21-R0.1-SNAPSHOT.jar:?]
+    at org.bukkit.craftbukkit.event.CraftEventFactory.callPlayerInteractEvent(CraftEventFactory.java:595) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.level.ServerPlayerGameMode.useItemOn(ServerPlayerGameMode.java:536) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.network.ServerGamePacketListenerImpl.handleUseItemOn(ServerGamePacketListenerImpl.java:1871) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.network.protocol.game.ServerboundUseItemOnPacket.handle(ServerboundUseItemOnPacket.java:44) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.network.protocol.game.ServerboundUseItemOnPacket.handle(ServerboundUseItemOnPacket.java:11) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.network.protocol.PacketUtils.lambda$ensureRunningOnSameThread$0(PacketUtils.java:56) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.TickTask.run(TickTask.java:18) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:151) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:24) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:1533) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:201) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:125) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:1510) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:1503) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.util.thread.BlockableEventLoop.managedBlock(BlockableEventLoop.java:135) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.MinecraftServer.managedBlock(MinecraftServer.java:1462) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.MinecraftServer.waitUntilNextTick(MinecraftServer.java:1469) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1314) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:330) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+```
+
+Dies könnte zuerst nach sehr viel aussehen, allerdings wirst du am Ende merken, dass das eigentlich ganz einfach zu verstehen ist.
+
+In der ersten Zeile kann man direkt erkennen, dass es einen Fehler beim Weitergeben eines `PlayerInteractEvent`s zu dem Plugin `MyPlugin` gibt.
+Dies bedeutet, dass das Plugin ein `PlayerInteractEvent` verarbeiten muss, dabei aber ein Fehler aufgekommen ist.
+
+Schauen wir uns jetzt mal die zweite Zeile an. Sie teilt uns mit, dass es einen `NoClassDefFoundError` gibt. Du musst dich nicht unbedingt mit Java auskennen, aber durch den Namen kannst du schon darauf schließen, dass eine Klasse nicht gefunden werden konnte.
+Wenn wir weiterlesen, sehen wir auch, welche Klasse nicht gefunden wurde. In diesem Fall ist es die Klasse `org.somelibrary.SomeClass`.
+
+Alles in allem bedeutet das dann, dass das Plugin auf eine Klasse einer Library zugreifen will, die weder im Plugin, noch auf dem Server vorhanden ist.
+Solche Probleme treten oft auf, wenn das Plugin nicht richtig compiled wurde.
+
+Wenn es ein Plugin ist, welches von dir geschrieben wurde, kannst du am Stacktrace auch direkt erkennen, dass die Problemursache in der 12. Zeile der Datei `PlayerInteractListener.java`. Dies kannst du in der dritten Zeile der Fehlermeldung erkennen.
+
+Wenn es ein Plugin ist, welches von jemand anderem erstellt wurde, solltest du überprüfen, ob du dich auf der letzten Version befindest und wenn nicht, versuch mal, es zu updaten. Wenn du dich auf der neuesten Version befindest, kannst du mal versuchen, den Entwickler des Plugins zu kontaktieren.
+
+Nun kannst du jetzt einfach durch das Lesen der Fehlermeldung verstehen, worin das Problem besteht und du kannst dir davon direkt eine Lösung des Problems ableiten.
+
+[//]: # (TODO: Add another example)
