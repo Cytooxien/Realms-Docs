@@ -50,7 +50,8 @@ const sidebars: SidebarsConfig = {
             items: [
                 "how-to-get-help/overview",
                 "how-to-get-help/reading-logs",
-                "how-to-get-help/troubleshooting"
+                "how-to-get-help/troubleshooting",
+                "how-to-get-help/properly-ask-questions"
             ]
         }
     ],
