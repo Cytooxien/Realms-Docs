@@ -1,0 +1,79 @@
+---
+pagination_prev: how-to-get-help/reading-logs
+pagination_next: null
+---
+
+# Fehlersuche
+
+##### Dieser Guide erklärt dir die Kernprinzipien der Fehlersuche bei Problemen mit deinem Realm
+
+### Einleitung
+
+Wenn du an deinem Realm arbeitest, könnte es passieren, dass dir ein Fehler begegnet, den du nicht in-game lösen kannst, wie beispielsweise ein Serverabsturz oder ein Plugin, welches nicht wie gewollt funktioniert.
+
+Hier kommt die Fehlersuche ins Spiel. Bei der Fehlersuche findet und behebt man Probleme mit seinem Realm.
+
+### Häufige Probleme
+
+Es gibt sehr viele Probleme, die dein Realm haben kann. Die meisten sind eine Folge von Plugins oder Fehlkonfigurationen.
+
+#### Plugin-induzierte Probleme
+
+Probleme, die durch Plugins entstehen, sind meistens am frustrierenden, da Plugins nur selten wirklich gut genug dokumentiert sind.
+
+Im Nachfolgenden befindet sich eine Liste mit den häufigsten Problemen, die durch Plugins entstehen. Fehlkonfigurationen sind dabei nicht mit einbezogen, da diese für jedes Plugin unterschiedlich sind.
+
+Um das Problem zu finden, hilft es oft, sich [den Server-Log durchzulesen](./reading-logs).
+
+##### Ein Plugin, das benötigt wird, fehlt oder ist nicht mehr aktuell
+
+Du kannst herausfinden, ob es sich um ein solches Problem handelt, wenn du etwas Ähnliches wie die folgende Fehlermeldung in deinem Server-Log findest:
+
+```
+[18:53:17 ERROR]: [ModernPluginLoadingStrategy] Could not load 'plugins/MyPlugin.jar' in 'plugins'
+org.bukkit.plugin.UnknownDependencyException: Unknown/missing dependency plugins: [SomeLibrary]. Please download and install these plugins to run 'MyPlugin'.
+        at io.papermc.paper.plugin.entrypoint.strategy.modern.ModernPluginLoadingStrategy.loadProviders(ModernPluginLoadingStrategy.java:82) ~[server.jar:1.21.1-DEV-4430e96]
+        at io.papermc.paper.plugin.storage.SimpleProviderStorage.enter(SimpleProviderStorage.java:38) ~[server.jar:1.21.1-DEV-4430e96]
+        at io.papermc.paper.plugin.manager.RuntimePluginEntrypointHandler.enter(RuntimePluginEntrypointHandler.java:40) ~[server.jar:1.21.1-DEV-4430e96]
+        at io.papermc.paper.plugin.manager.PaperPluginInstanceManager.loadPlugins(PaperPluginInstanceManager.java:147) ~[server.jar:1.21.1-DEV-4430e96]
+        at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.loadPlugins(PaperPluginManagerImpl.java:87) ~[server.jar:1.21.1-DEV-4430e96]
+        at org.bukkit.plugin.SimplePluginManager.loadPlugins(SimplePluginManager.java:128) ~[paper-mojangapi-1.21.1-R0.1-SNAPSHOT.jar:?]
+        at org.bukkit.plugin.SimplePluginManager.loadPlugins(SimplePluginManager.java:121) ~[paper-mojangapi-1.21.1-R0.1-SNAPSHOT.jar:?]
+[...]
+```
+
+Dabei sagt die zweite Zeile, also `org.bukkit.plugin.UnknownDependencyException: Unknown/missing dependency plugins: [SomeLibrary]`, welche Plugins was benötigen.
+
+Der einfachste Weg, den Fehler zu beheben, besteht darin, die benötigten Plugins im Internet zu finden und auf den Server zu laden.
+
+##### TPS-Verlust/Lag-Spikes
+
+Ein TPS-Verlust kann beispielsweise entstehen, wenn es sehr viele Entities ein einer Welt gibt, aber auch aufgrund von Plugins (Skripts miteinbezogen).
+
+Um herauszufinden, ob das Problem durch ein Plugin verursacht wurde, nutzt man im Normalfall den [Spark Profiler](https://spark.lucko.me). Dieser ist schon auf dem Server vorinstalliert.
+
+Um ihn zu nutzen, führe den Befehl `/spark profiler start --timeout 300` aus und nach 5 Minuten bekommst du einen Link zu einer Website, auf der alle Statistiken gesammelt wurden.
+
+Als nächstes ist es empfohlen, [der offiziellen Dokumentation von Spark](https://spark.lucko.me/docs/Using-the-viewer) zu folgen, um die Ursache für den Lag zu finden, such vor allem nach Namen von Plugins im Interface.
+
+#### Probleme, die nicht durch Plugins verursacht wurden
+
+Natürlich gibt es auch Probleme, die nicht durch Plugins verursacht wurden.
+Diese entstehen oft nicht durch dich, sondern durch das Realms-System an sich. Allerdings kann man als Nutzer auch für solche Probleme verantwortlich sein.
+
+Es ist oft hilfreich, einen Post im `realms-help`-Forum auf dem Cytooxien Discord server ([discord.gg/cytooxien](https://discord.gg/cytooxien)) zu öffnen, falls dir ein Problem begegnet, welches nicht durch ein Plugin entstanden ist.
+Wie schon vorhin erklärt, entstehen diese Probleme durch das Realms-System an sich, daher ist es eine gute Idee, das Team darüber zu informieren, damit das Problem behoben werden kann.
+
+##### Versuchtes Laden eines Chunks mit einer älteren Serverversion
+
+Beim Start des Servers kann dir ein Crash mit der folgenden Nachricht entgegenkommen:
+
+```
+java.lang.RuntimeException: Server attempted to load chunk saved with newer version of minecraft! 3955 > 3465
+```
+
+Dies passiert, wenn der Server sich auf einer älteren Version befindet, als die Welt, die er laden will.
+Solche Probleme kommen oft auf, wenn man beispielsweise eine Welt aus dem Singleplayer auf den Realm hochladen will und die Welt in einer neueren Version generiert wurde, als die Serverversion vom Realm.
+
+Es ist nicht einfach, das Problem zu lösen, da Teile der Welt bei einem Downgrade kaputtgehen können, im schlimmsten Fall sogar die ganze Welt.
+Natürlich *ist* es möglich, allerdings ist davon strengstens abzuraten und man sollte immer Backups von der Welt haben, bevor man irgendwas in diese Art macht.

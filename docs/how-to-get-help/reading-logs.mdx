@@ -1,0 +1,86 @@
+---
+pagination_prev: how-to-get-help/overview
+pagination_next: how-to-get-help/troubleshooting
+---
+
+# Reading log files
+
+##### This article will give you a few tricks on how to read and understand log files
+
+### Introduction
+
+When you're working on your realm, you might encounter a problem that you can't figure out from in-game, such as a server crash or a plugin not working as intended.
+This is where log files come in. Log files are files that contain information about what happened when on your Realm, and they can be very helpful in diagnosing problems.
+
+To access the log files, open the [File Manager in the Web Interface](../web-interface/file-manager) and open the `logs` folder. In there, you can find the log files for your realm.
+
+The latest log file is always called `latest.log` and every previous log file is named `YYYY-MM-DD-<number>.log.gz`.
+
+You've maybe realized that the file extension is different between the latest.log and the older log files. That happens because they are compressed to save space. To decompress them, click the three dots at the right of the file and select "Decompress" ("Entpacken").
+
+### The basics of reading a log file
+
+Practically everything that the server wants to tell you gets written into a log file.
+
+There is an indicator at the beginning of the line telling you whether it's an error, a warning or just information. These are labeled accordingly with the prefixes `ERROR`, `WARN` and `INFO`.
+
+If you encounter a server-related problem (such as a plugin not working as intended or the server crashing), the server has most likely written an error message into the log file. This is where you should start looking for the problem.
+
+### Finding errors and their causes
+
+When you're encountering a problem, you should always look for any `ERROR` messages in the log. These messages usually contain information about what went wrong and where the problem occurred.
+
+The error message will usually contain a stack trace, which is a list of method calls that led to the error. This can be very helpful in diagnosing the problem, as it shows you exactly where the error occurred and what caused it.
+
+Let's take a look at an example error message:
+
+```
+[14:03:44 ERROR]: Could not pass event PlayerInteractEvent to MyPlugin v1.0
+java.lang.NoClassDefFoundError: org.somelibrary.SomeClass
+    at MyPlugin.jar/com.myplugin.listener.player.PlayerInteractListener.onPlayerInteract(PlayerInteractListener.java:12) ~[MyPlugin.jar:?]
+    at com.destroystokyo.paper.event.executor.MethodHandleEventExecutor.execute(MethodHandleEventExecutor.java:40) ~[paper-api-1.21-R0.1-SNAPSHOT.jar:?]
+    at co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:77) ~[paper-api-1.21-R0.1-SNAPSHOT.jar:1.21-78-ef96a69]
+    at org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:70) ~[paper-api-1.21-R0.1-SNAPSHOT.jar:?]
+    at io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:131) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:628) ~[paper-api-1.21-R0.1-SNAPSHOT.jar:?]
+    at org.bukkit.craftbukkit.event.CraftEventFactory.callPlayerInteractEvent(CraftEventFactory.java:595) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.level.ServerPlayerGameMode.useItemOn(ServerPlayerGameMode.java:536) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.network.ServerGamePacketListenerImpl.handleUseItemOn(ServerGamePacketListenerImpl.java:1871) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.network.protocol.game.ServerboundUseItemOnPacket.handle(ServerboundUseItemOnPacket.java:44) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.network.protocol.game.ServerboundUseItemOnPacket.handle(ServerboundUseItemOnPacket.java:11) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.network.protocol.PacketUtils.lambda$ensureRunningOnSameThread$0(PacketUtils.java:56) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.TickTask.run(TickTask.java:18) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:151) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:24) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:1533) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:201) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:125) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:1510) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:1503) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.util.thread.BlockableEventLoop.managedBlock(BlockableEventLoop.java:135) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.MinecraftServer.managedBlock(MinecraftServer.java:1462) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.MinecraftServer.waitUntilNextTick(MinecraftServer.java:1469) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1314) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:330) ~[paper-1.21.jar:1.21-78-ef96a69]
+    at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]
+```
+
+This may look overwhelming at first, but it's actually not that hard to understand what's going on.
+
+In the first line, you can already see that there was an error passing a PlayerInteractEvent to the plugin MyPlugin.
+This means that the plugin tried to handle a PlayerInteractEvent, but failed to do so.
+
+Let's take a look at the second line now. It's telling that there was a NoClassDefFoundError. You don't have to be familiar with Java to understand that some class could not have been found.
+If we keep reading, it's also telling us which class could not be found. In this case, it's `org.somelibrary.SomeClass`.
+
+This means that the plugin is trying to use a class from a library that is not present in the plugin's classpath.
+This mostly happens when the plugin hasn't been compiled properly.
+
+If it's a plugin you've developed yourself, the stacktrace already gives you the line and the file where the error occurred. You can see that in the third line of the error message.
+
+If it's a plugin someone else has developed, you should check if you're on the latest version of that plugin and if you're not, try updating it. If you're already on the latest version, you should try reaching out to the developer of the plugin.
+
+So you see, now that you've understood the error message, you already know what the problem is and a possible way how to fix it.
+
+[//]: # (TODO: Add another example)
