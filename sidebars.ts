@@ -53,6 +53,22 @@ const sidebars: SidebarsConfig = {
                 "how-to-get-help/troubleshooting",
                 "how-to-get-help/properly-ask-questions"
             ]
+        },
+        {
+            type: "category",
+            label: "Administration",
+            collapsed: true,
+            link: {
+                type: "generated-index",
+                slug: "administration"
+            },
+            items: [
+                "administration/load-backup",
+                "administration/create-own-backup",
+                "administration/upload-custom-world",
+                "administration/upload-texturepack",
+                "administration/clean-up-realm"
+            ]
         }
     ],
 };
