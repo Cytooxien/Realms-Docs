@@ -10,5 +10,9 @@
   "sidebar.mainSidebar.category.Web Interface": {
     "message": "Web-Interface",
     "description": "The label for category Web Interface in sidebar mainSidebar"
+  },
+  "sidebar.mainSidebar.category.How to get help": {
+    "message": "Wie man richtig Hilfe bekommt",
+    "description": "The label for category How to get help in sidebar mainSidebar"
   }
 }
