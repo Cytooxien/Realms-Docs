@@ -8,14 +8,16 @@
 :root {
     --ifm-color-primary: #333333;
     --ifm-color-primary-dark: #404040;
-    --ifm-color-primary-darker: #555555;
-    --ifm-color-primary-darkest: #7c7c7c;
+    --ifm-color-primary-darker: #3e3e3e;
+    --ifm-color-primary-darkest: #4e4e4e;
     --ifm-color-primary-light: #fbbf24;
-    --ifm-color-primary-lighter: #1a8e71;
-    --ifm-color-primary-lightest: #0093d8;
+    --ifm-color-primary-lighter: #2c912c;
+    --ifm-color-primary-lightest: #115ae1;
     --ifm-color-primary-red: #9f1239;
     --ifm-color-primary-black: #0d0d0d;
     --ifm-color-primary-bg: rgba(255, 255, 255, 0.75);
+    --ifm-color-primary-bg-docs: rgba(255, 255, 255, 0.275);
+    --ifm-color-gray-700: #444b50;
     --ifm-color-primary-subtitle: #474747;
     --ifm-code-font-size: 95%;
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
@@ -28,17 +30,20 @@
     --ifm-color-primary-darker: #858585;
     --ifm-color-primary-darkest: #606060;
     --ifm-color-primary-light: #fbbf24;
-    --ifm-color-primary-lighter: #22c59a;
-    --ifm-color-primary-lightest: #00a9ff;
+    --ifm-color-primary-lighter: #4ecc4e;
+    --ifm-color-primary-lightest: #72a8ff;
     --ifm-color-primary-red: #9f1239;
     --ifm-color-primary-black: #0d0d0d;
     --ifm-color-primary-bg: rgba(28, 28, 28, 0.75);
+    --ifm-color-primary-bg-docs: rgba(28, 28, 28, 0.25);
     --ifm-color-primary-subtitle: #cccccc;
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
 * {
     font-family: Helvetica, Arial, Tahoma, Verdana, sans-serif;
+    transition: color 0.2s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
 }
 
 p {
@@ -55,10 +60,17 @@ a:hover {
 
 code {
     color: var(--ifm-color-primary-lighter);
+    background-color: var(--ifm-color-primary-bg-docs);
+    backdrop-filter: blur(500px);
 }
 
 h5 {
     font-size: 1.675vh;
+}
+
+table {
+    backdrop-filter: blur(1vh);
+    scrollbar-width: thin;
 }
 
 .hash-link {
@@ -77,8 +89,19 @@ h5 {
   color: var(--ifm-color-primary);
 }
 
+.breadcrumbs__link {
+    color: var(--ifm-color-primary);
+    backdrop-filter: blur(0.25vh);
+}
+
+.breadcrumbs__link:hover {
+    color: var(--ifm-color-primary-darker);
+}
+
 .card {
     color: var(--ifm-color-primary);
+    background-color: transparent;
+    backdrop-filter: blur(1vh);
 }
 
 .card:hover {
@@ -87,6 +110,8 @@ h5 {
 
 .pagination-nav__link {
     color: var(--ifm-color-primary-dark);
+    background-color: transparent;
+    backdrop-filter: blur(1vh);
 }
 
 .pagination-nav__link:hover {
@@ -175,4 +200,27 @@ h5 {
     position: relative;
     right: 0.5vh;
     bottom: 0.5vh;
+}
+
+.docRoot_UBD9 {
+    background-color: var(--ifm-color-primary-bg-docs);
+    backdrop-filter: blur(1vh);
+}
+
+.docsWrapper_hBAB {
+    background-image: url("/img/bg/docs.webp");
+    background-position-y: 55%;
+    background-position-x: 50%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.docSidebarContainer_YfHR {
+    backdrop-filter: blur(1vh);
+}
+
+.tableOfContents_bqdL {
+    backdrop-filter: blur(1vh);
+    border-radius: 0.75vh;
 }

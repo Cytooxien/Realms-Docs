@@ -9,29 +9,7 @@
     background-color: black;
 }
 
-.background-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 3s ease-in-out;
-    z-index: -1;
-    pointer-events: none;
-    filter: blur(0.5vh);
-}
-
-.visible {
-    opacity: 0.75;
-}
-
-.hidden {
-    opacity: 0;
-}
-
-.card {
+.main__card {
     position: relative;
     z-index: 2;
     background-color: var(--ifm-color-primary-bg) ;
@@ -56,6 +34,27 @@
     }
 }
 
+.background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(0.5vh);
+}
+
+.visible {
+    opacity: 0.75;
+}
+
+.hidden {
+    opacity: 0;
+}
 
 .red-glow {
     box-shadow: 0 0 32px rgba(189, 46, 44, 0.45);

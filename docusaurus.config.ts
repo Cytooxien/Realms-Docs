@@ -63,12 +63,17 @@ const config: Config = {
     ],
 
     themeConfig: {
-        image: 'Cy_T_14x.png',
+        colorMode: {
+            defaultMode: 'dark',
+            disableSwitch: false,
+            respectPrefersColorScheme: true,
+        },
+        image: 'Cy_T_14x.webp',
         navbar: {
             title: 'Cytooxien-Realms Wiki',
             logo: {
                 alt: 'Cytooxien Logo',
-                src: 'XLogo_3D_14x.png',
+                src: 'XLogo_3D_14x.webp',
             },
             items: [
                 {

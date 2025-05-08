@@ -7,19 +7,27 @@ import Image from '@theme/IdealImage';
 import BackgroundImages from "@site/src/components/bg-image";
 
 import '../css/homepage.css';
+import {useState} from "react";
 
 export default function Home() {
     const { siteConfig } = useDocusaurusContext();
 
+    const [background, setBackground] = useState(false);
+
     return (
         <Layout title="Cytooxien-Realms Wiki" description="This is the community-driven documentation for Cytooxien Realms">
             <main className={"main"}>
-                <div className={"background-container"}>
-                    <BackgroundImages/>
-                </div>
+                {
+                    background ?
+                        <div className={"background-container"}>
+                            <BackgroundImages/>
+                        </div>
+                        :
+                        <></>
+                }
 
-                <div className={"card"}>
-                    <Image img={"XLogo_3D_14x.png"} alt={"Cytooxien Logo"} className={"logo"}/>
+                <div className={"main__card"}>
+                    <Image img={"XLogo_3D_14x.webp"} alt={"Cytooxien Logo"} className={"logo"} onLoad={() => setBackground(true)} />
                     <h1 className={"title red-text"}>Cytooxien-Realms Wiki</h1>
                     <p className={"subtitle"}>
                         Welcome to the community-driven documentation for Cytooxien Realms!
