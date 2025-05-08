@@ -63,6 +63,11 @@ const config: Config = {
     ],
 
     themeConfig: {
+        colorMode: {
+            defaultMode: 'dark',
+            disableSwitch: false,
+            respectPrefersColorScheme: true,
+        },
         image: 'Cy_T_14x.webp',
         navbar: {
             title: 'Cytooxien-Realms Wiki',
