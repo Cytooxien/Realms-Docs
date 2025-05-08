@@ -12,22 +12,15 @@ import {useState} from "react";
 export default function Home() {
     const { siteConfig } = useDocusaurusContext();
 
-    const [background, setBackground] = useState(false);
-
     return (
         <Layout title="Cytooxien-Realms Wiki" description="This is the community-driven documentation for Cytooxien Realms">
             <main className={"main"}>
-                {
-                    background ?
-                        <div className={"background-container"}>
-                            <BackgroundImages/>
-                        </div>
-                        :
-                        <></>
-                }
+                <div className={"background-container"}>
+                    <BackgroundImages/>
+                </div>
 
                 <div className={"main__card"}>
-                    <Image img={"XLogo_3D_14x.webp"} alt={"Cytooxien Logo"} className={"logo"} onLoad={() => setBackground(true)} />
+                    <Image img={"XLogo_3D_14x.webp"} alt={"Cytooxien Logo"} className={"logo"} />
                     <h1 className={"title red-text"}>Cytooxien-Realms Wiki</h1>
                     <p className={"subtitle"}>
                         Welcome to the community-driven documentation for Cytooxien Realms!
