@@ -128,6 +128,10 @@ table {
     color: #ffffff;
 }
 
+.clean-btn {
+    color: var(--ifm-color-primary);
+}
+
 .clean-btn:hover {
     background-color: transparent;
 }
@@ -188,8 +192,8 @@ table {
     border-radius: 12px;
     color: white;
     position: absolute;
-    right: 150px;
-    top: 15px;
+    right: 13vh;
+    top: 1vh;
     height: 5vh;
     width: 5vh;
 }
@@ -211,7 +215,7 @@ table {
     background-image: url("/img/bg/docs.webp");
     background-position-y: 55%;
     background-position-x: 50%;
-    background-size: auto 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
