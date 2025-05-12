@@ -35,11 +35,6 @@ export default function Home() {
                 </div>
 
                 <div className={"main__card"}>
-                    <Image img={"XLogo_3D_14x.webp"} alt={"Cytooxien Logo"} className={"logo"}/>
-                    <BackgroundImages/>
-                </div>
-
-                <div className={"main__card"}>
                     <Image img={"XLogo_3D_14x.webp"} alt={"Cytooxien Logo"} className={"logo"} />
                     <h1 className={"title red-text"}>Cytooxien-Realms Wiki</h1>
                     <p className={"subtitle"}>
