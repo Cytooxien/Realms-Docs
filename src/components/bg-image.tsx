@@ -1,32 +1,13 @@
-import {useEffect, useState} from 'react';
+import {ReactElement, ReactNode, useEffect, useState} from 'react';
+
+const bgImageAmount: number = 31;
 
 export default function BackgroundImages() {
-    const bgImageAmount: number = 31;
-    const bgImages:number[] = [];
-
-    for (let i = 0; i < bgImageAmount; i++) {
-        bgImages.push(bgImageAmount);
-    }
+    const bgImages = Array.from({ length: bgImageAmount }, (_, i) => i);
 
     const [bgIndex, setBgIndex] = useState(0);
-    const [isLoading, setIsLoading] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
-
-    const loadImages = async () => {
-        let j: number = 0;
-
-        for (let i = 0; i < bgImageAmount; i++) {
-            const img = new Image();
-
-            img.src = `./img/bg/${i}.webp`;
-            img.onload = () => {
-                j += 1;
-                if (j >= bgImageAmount) {
-                    setIsLoaded(true);
-                }
-            };
-        }
-    }
+    const [loadedCount, setLoadedCount] = useState(0);
 
     useEffect(() => {
         if (!isLoaded) return;
@@ -39,24 +20,32 @@ export default function BackgroundImages() {
         return () => clearInterval(interval);
     }, [isLoaded]);
 
+    useEffect(() => {
+        if (loadedCount >= bgImageAmount) {
+            setIsLoaded(true);
+        }
+    }, [loadedCount]);
+
     return (
         <>
             {
-                isLoading ?
-                    (
-                        bgImages.map((item, index: number) => (
-                            <img key={index} src={`./img/bg/${index}.webp`} className={`background-img ${index === bgIndex ? 'visible' : 'hidden'}`} alt={"Background image"}/>
-                        ))
-                    )
-                    : (
-                        <img key={0} src={"./img/bg/0.webp"} className={`background-img visible`} alt="background image" onLoad={() => {
-                            setTimeout(() => {
-                                loadImages();
-                                setIsLoading(true);
-                            }, 5000)
-                        }}/>
-                    )
+                bgImages.map((item, index: number) => (
+                    <img key={index} src={`./img/bg/${index}.webp`}
+                         className={`background-img ${index === bgIndex ? 'visible' : 'hidden'}`}
+                         alt={"Background image"}
+                         onLoad={() => setLoadedCount((prev) => prev + 1)}/>
+                ))
             }
         </>
     )
+}
+
+export async function loadImages() {
+    let j: number = 0;
+
+    for (let i = 0; i < bgImageAmount; i++) {
+        const img = new Image();
+
+        img.src = `./img/bg/${i}.webp`;
+    }
 }

@@ -35,7 +35,7 @@
     --ifm-color-primary-red: #9f1239;
     --ifm-color-primary-black: #0d0d0d;
     --ifm-color-primary-bg: rgba(28, 28, 28, 0.75);
-    --ifm-color-primary-bg-docs: rgba(28, 28, 28, 0.25);
+    --ifm-color-primary-bg-docs: rgba(28, 28, 28, 0.4);
     --ifm-color-primary-subtitle: #cccccc;
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
@@ -128,6 +128,10 @@ table {
     color: #ffffff;
 }
 
+.clean-btn {
+    color: var(--ifm-color-primary);
+}
+
 .clean-btn:hover {
     background-color: transparent;
 }
@@ -185,11 +189,11 @@ table {
 .navbar__item_discord {
     background-color: var(--ifm-color-primary-lightest);
     padding: 1.5vh;
-    border-radius: 12px;
+    border-radius: 1vh;
     color: white;
     position: absolute;
-    right: 150px;
-    top: 15px;
+    transform: translateX(-2vw);
+    top: 1vh;
     height: 5vh;
     width: 5vh;
 }
@@ -211,7 +215,7 @@ table {
     background-image: url("/img/bg/docs.webp");
     background-position-y: 55%;
     background-position-x: 50%;
-    background-size: auto 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
