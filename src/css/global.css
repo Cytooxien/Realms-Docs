@@ -35,7 +35,7 @@
     --ifm-color-primary-red: #9f1239;
     --ifm-color-primary-black: #0d0d0d;
     --ifm-color-primary-bg: rgba(28, 28, 28, 0.75);
-    --ifm-color-primary-bg-docs: rgba(28, 28, 28, 0.25);
+    --ifm-color-primary-bg-docs: rgba(28, 28, 28, 0.4);
     --ifm-color-primary-subtitle: #cccccc;
     --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
@@ -189,10 +189,10 @@ table {
 .navbar__item_discord {
     background-color: var(--ifm-color-primary-lightest);
     padding: 1.5vh;
-    border-radius: 12px;
+    border-radius: 1vh;
     color: white;
     position: absolute;
-    right: 13vh;
+    transform: translateX(-2vw);
     top: 1vh;
     height: 5vh;
     width: 5vh;
