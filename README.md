@@ -1,5 +1,7 @@
 # Website
 
+You can view it at [cytooxien.github.io/Realms-Docs/](https://cytooxien.github.io/Realms-Docs/)
+
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 ### Installation
