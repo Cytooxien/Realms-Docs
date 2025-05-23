@@ -309,5 +309,13 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
+  },
+  "home.subtitle": {
+    "message": "Welcome to the community-driven documentation for Cytooxien Realms!",
+    "description": "Homepage subtitle"
+  },
+  "home.getStarted": {
+    "message": "Get Started",
+    "description": "Get Started button"
   }
 }
