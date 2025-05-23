@@ -64,12 +64,19 @@ code {
     backdrop-filter: blur(500px);
 }
 
+h4 {
+    font-size: 1.95vh;
+}
+
 h5 {
     font-size: 1.675vh;
 }
 
-table {
+tr {
     backdrop-filter: blur(1vh);
+}
+
+table {
     scrollbar-width: thin;
 }
 

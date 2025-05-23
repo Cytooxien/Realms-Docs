@@ -1,0 +1,179 @@
+---
+pagination_next: getting-started/create-your-first-realm
+pagination_prev: null
+---
+
+# Contributing
+
+##### This article will give you an overview on how to contribute to the project
+
+### Overview
+
+You can either suggest topics, or you can directly write an article to a topic you think should be in the docs.
+Even pointing out mistakes which we might have missed would help out a ton.
+Contributing to the docs requires a GitHub account and at least some experience using the platform.
+Support for writing articles will not be provided.
+
+### Suggesting topics/pointing out issues
+
+In order to suggest a topic or point out an issue, create an issue on our GitHub repository and select the correct template.
+You can find the issue page [here](https://github.com/Cytooxien/Realms-Docs/issues).
+
+### Writing articles for the docs
+
+#### Quick start guide
+
+1. Fork the repository: [https://github.com/Cytooxien/Realms-Docs.git](https://github.com/Cytooxien/Realms-Docs.git)
+2. Clone your fork: `git clone https://github.com/YOUR-USERNAME/Realms-Docs.git` (of course replace the username and the name of the repository)
+3. Create a new branch: `git checkout -b feature/yourFeatureName` (follow the camelCase styling for the feature name)
+4. Make your changes (make sure to follow the documentation guidelines found below)
+5. Test your changes locally (not only in the dev environment but also after building the project, also look out for typos or grammar mistakes)
+6. Submit a pull request with the changes you made (make sure to include a description that clearly describes what the feature changes and screenshots if necessary)
+
+#### Development commands
+
+```bash
+# Installation
+npm install
+
+# Local Development
+docusaurus start # alternatively: `npm run start`
+
+# Local Development with german translations
+docusaurus start --locale de # sometimes running `npm run start --locale de` doesn't work
+
+# Build
+docusaurus build # alternatively: `npm run build`
+```
+
+### Documentation guidelines
+
+#### File structure guidelines
+
+All articles belong into the `docs` folder. Each article (except for this one) needs to be in a subfolder which serves as a category.
+
+Articles which are written in german belong into the `i8n/de/docusaurus-content-docs/current` folder.
+
+The home page, the CSS files, and other React components are located in the `src` folder and in their respective subfolders.
+
+Images belong into the `static/img` folder.
+Images which are being used in articles are located in the `static/img/en` folder for images with english texts.
+Images which have german texts belong into the `static/img/de` folder.
+
+#### Writing guidelines
+
+##### Markdown guidelines
+
+- Use markdown headers (such as `#` for h1, `##` for h2, etc)
+- Use backticks for inline code and triple backticks for code blocks
+- Include an alt text for all images
+
+##### Layout guidelines
+
+Every file should have the following at the beginning of it to allow navigation between articles.
+These should be in the order of how the articles are being displayed in the sidebar to avoid confusion:
+
+```
+pagination_prev: # link to the previous article (for example: getting-started/player-management)
+pagination_next: # link to the next article (for example: getting-started/world-management)
+```
+
+Next, the title for the article is written using a `#`-tag. Keep it short and use title-style capitalization.
+
+After that, write a short description of the article using a `#####`-tag. It should be one sentence.
+
+Titles inside the article should start with `###` and add more hashtags for every indentation level.
+
+When images are being used in English articles, they need to be declared using:
+```mdx
+![alt text](../../static/img/en/<category>/<desciptive name>)
+```
+When they're being used in German articles, they need to be declared using:
+```mdx
+![alt text in german](../../../../../static/img/de/<category>/<name same as for the english image>)
+```
+
+##### Style guidelines
+
+- Keep sentences short and concise
+- Break up long paragraphs into smaller ones
+- Use active voice
+- Try avoiding informal language
+- Complex concepts or terminology should have an explanation, or a link to an explanation should be given
+- Link to other parts of the docs if they're mentioned
+- Use images when explaining GUIs
+
+##### Image guidelines
+
+- Images need to be in the file format webp (use an online converter to convert them)
+- Images need to only include the most important information (crop them to only include what you're trying to show)
+- The filenames for images need to be unique and descriptive (don't name them `Screenshot-<date>.webp` or similar), the same applies to alt texts
+- When showing GUIs, photoshop the images to only show the GUI itself and not the world in the background ([example here](https://cytooxien.github.io/Realms-Docs/docs/getting-started/world-management))
+
+### Translating articles
+
+Every article needs to be available in both English and German as a large part of the Realms community speaks German.
+Thus, before opening a pull request, make sure to have the content changes you made translated into German.
+
+Generally speaking, the translated articles are located in the `i8n/de/docusaurus-content-docs/current` as previously explained in the file structure guidelines.
+
+So if you decide to write an article, copy it into the German directory **(make sure to keep the folder structure and file names the same)** and translate it into German.
+Make sure to keep the information the same for both languages.
+
+### Adding your article to the sidebar
+
+To make your article appear in the sidebar, first open the `sidebars.ts` file in the project folder.
+Then, add your article to either a category it belongs into or create a new one.
+
+Below is an example:
+```ts
+{
+    type: "category",
+    label: "Web Interface",
+    collapsed: true,
+    link: {
+        type: "generated-index",
+        slug: "web-interface"
+    },
+    items: [
+        "web-interface/console",
+        "web-interface/file-manager",
+        "web-interface/advanced-configuration",
+        "web-interface/other-tabs",
+        "web-interface/profile",
+        "web-interface/ptero-api",
+        "web-interface/your-new-article" // Add your new article, make sure to keep the order of the items in the sidebar the same as for the navigation buttons
+    ]
+}
+```
+
+Now you've added your article to the sidebar.
+
+#### How to add a newly created category to the sidebar
+
+To create a new category, use the following and replace the placeholder values:
+
+```ts
+{
+    type: "category",
+    label: "", // Name for the category
+    link: {
+        type: "generated-index",
+        slug: "" // This is what will be used when linking to the category
+    },
+    items: [
+        // Add the articles, make sure to keep the order of the items in the sidebar the same as for the navigation buttons
+    ]
+}
+```
+
+Now after you've done that, open the `current.json` file in the `i8n/de/docusaurus-content-docs` folder and add the following (of course replace the necessary values):
+
+```json
+{
+  "sidebar.mainSidebar.category.<label of your category>": {
+    "message": "<category name in German>",
+    "description": "The label for category <category name> in sidebar mainSidebar"
+  }
+}
+```
