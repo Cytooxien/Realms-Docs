@@ -1,7 +1,6 @@
 import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
-    // By default, Docusaurus generates a sidebar from the docs folder structure
     mainSidebar: [
         {
             type: "category",
@@ -69,6 +68,11 @@ const sidebars: SidebarsConfig = {
                 "administration/upload-texturepack",
                 "administration/clean-up-realm"
             ]
+        },
+        {
+            type: "doc",
+            id: "contributing",
+            label: "Contributing"
         }
     ],
 };
