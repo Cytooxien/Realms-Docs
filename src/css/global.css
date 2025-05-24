@@ -128,7 +128,7 @@ table {
 .navbar {
     background-color: var(--ifm-color-primary-red);
     color: #ffffff;
-    height: 7.5vh;
+    height: 6rem;
 }
 
 .navbar__items {
@@ -194,23 +194,19 @@ table {
 }
 
 .navbar__item_discord {
-    background-color: var(--ifm-color-primary-lightest);
-    padding: 1.5vh;
-    border-radius: 1vh;
-    color: white;
-    position: absolute;
-    transform: translateX(-2vw);
-    top: 1vh;
-    height: 5vh;
-    width: 5vh;
+    display: flex;
+    align-items: center;
 }
 
 .navbar__item_discord_img {
-    width: 3vh;
-    height: 3vh;
+    background-color: var(--ifm-color-primary-lightest);
+    padding: var(--ifm-navbar-item-padding-vertical) var(--ifm-navbar-item-padding-horizontal);
+    align-self: center;
+    color: white;
+    width: 4rem;
+    height: 4rem;
     position: relative;
-    right: 0.5vh;
-    bottom: 0.5vh;
+    border-radius: 1vh;
 }
 
 .docRoot_UBD9 {
