@@ -69,13 +69,6 @@ const config: Config = {
             respectPrefersColorScheme: true,
         },
         image: 'Cy_T_14x.webp',
-        announcementBar: {
-            id: `survey-announcement`,
-            content: `Wir arbeiten gerade daran, unsere Docs zu verbessern. Nimm dir daher ganz kurz die Zeit und fülle <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/33JEA8rsP9R3uAs27">diese Umfrage</a> aus ♥️.`,
-            backgroundColor: '#be123c',
-            textColor: '#ffffff',
-            isCloseable: true,
-        },
         navbar: {
             title: 'Cytooxien-Realms Wiki',
             logo: {
