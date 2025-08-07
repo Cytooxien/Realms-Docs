@@ -119,10 +119,6 @@ const config: Config = {
                         {
                             label: 'GitHub',
                             href: 'https://github.com/Cytooxien/Realms-Docs',
-                        },
-                        {
-                            label: "Imprint",
-                            href: 'https://cytooxien.net/help/imprint'
                         }
                     ],
                 },
