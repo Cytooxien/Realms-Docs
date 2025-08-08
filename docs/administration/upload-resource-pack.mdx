@@ -1,0 +1,54 @@
+---
+pagination_next: null
+pagination_prev: administration/upload-custom-world
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Upload Your Own Resource Pack
+
+##### In this guide, we'll show you step-by-step how to upload your own resource pack.
+
+You have your own resource pack but don't know how to upload it to your Realm? No problem.
+
+    1. You need a direct download link for your resource pack. You can also use an free hoster.
+
+    2. Open the web interface of your Realm.
+
+    3. Navigate to the `[Files](../web-interface/file-manager)` section.
+
+    4. Look for the file called `server.properties` and click on it.
+
+    5. Search for the line `resource-pack=` using CTRL + F.
+
+    6. Paste the url at the end of that line. 
+
+        For example: `resource-pack=https://example.com/resourcepack.zip`
+        
+    7. It's recommended to also include the SHA1-Hash of the resource pack. For this look [below](#generate-sha1-of-resource-pack).
+
+        Paste this SHA1-Hash in the `resource-pack-sha1=` line.
+       
+        For example: `resource-pack-sha1=da39a3ee5e6b4b0d3255bfef95601890afd80709`
+
+    8. Save the file and restart your Realm.
+
+### Generate SHA1 of resource pack
+
+You can use an online tool like https://emn178.github.io/online-tools/sha1_checksum.html.
+
+The SHA1 can also be generated using the command:
+
+<Tabs>
+  <TabItem value="windows" label="Windows" default>
+    ```powershell
+    Get-FileHash resourcePack.zip -Algorithm SHA1
+    ```
+  </TabItem>
+  <TabItem value="linux" label="Linux">
+    ```bash
+    sha1sum resourcePack.zip
+    ```
+  </TabItem>
+</Tabs>
