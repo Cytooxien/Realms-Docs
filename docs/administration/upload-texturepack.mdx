@@ -11,19 +11,17 @@ You have your own texture pack but don't know how to upload it to your Realm? No
 
     1. Open the web interface of your Realm.
 
-    2. Navigate to the “Files” section.
+    2. Navigate to the “[Files](../web-interface/file-manager)” section.
 
     3. Look for the file called `server.properties` and click on it.
 
-    4. Press CTRL + F to search for the line `texturepack=`.
+    4. Delete the lines with `resource-pack=` and `resource-pack-sha1=`. Using CTRL + F you can search for these.
 
     5. Open a new tab in your browser and search for: `minecraft texturepack host`
     (We recommend the first result, [Mc-packs](https://mc-packs.net) – but you can use any other host as well.)
 
     6. Drag and drop your texturepack or select it manually.
 
-    7. After uploading, you will receive a download link. Copy this link.
-
-    8. Go back to `server.properties` and paste the link after `texturepack=` (e.g., texturepack=https://yourhost.net/w3ethiswzarticleefisejawesome).
+    7. Copy the two lines in the right column and insert these in `server.properties`.
 
     9. Save the file and restart your Realm.
