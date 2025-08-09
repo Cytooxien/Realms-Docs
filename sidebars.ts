@@ -65,8 +65,8 @@ const sidebars: SidebarsConfig = {
                 "administration/load-backup",
                 "administration/create-own-backup",
                 "administration/upload-custom-world",
-                "administration/upload-texturepack",
-                "administration/clean-up-realm"
+                "administration/upload-resource-pack",
+                //"administration/clean-up-realm"
             ]
         },
         {
