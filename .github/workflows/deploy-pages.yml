@@ -1,0 +1,47 @@
+name: Deploy GitHub Pages
+
+on:
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
+
+permissions:
+  contents: write
+
+concurrency:
+  group: github-pages-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    if: |
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'master'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: https://cytooxien.github.io/Realms-Docs/
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Download production artifact from CI
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: production-site
+          path: production-site
+
+      - name: Deploy production site to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: production-site
+          clean: true
+          clean-exclude: |
+            previews

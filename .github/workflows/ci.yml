@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Build production site
+        if: github.event_name != 'pull_request'
+        env:
+          DOCUSAURUS_SITE_URL: https://cytooxien.github.io
+          DOCUSAURUS_BASE_URL: /Realms-Docs/
+        run: npm run build
+
+      - name: Build preview site
+        if: github.event_name == 'pull_request'
+        env:
+          DOCUSAURUS_SITE_URL: https://cytooxien.github.io
+          DOCUSAURUS_BASE_URL: /Realms-Docs/previews/pr-${{ github.event.pull_request.number }}/
+        run: npm run build
+
+      - name: Upload preview artifact
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-preview-site
+          path: build
+          if-no-files-found: error
+
+      - name: Upload production artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-site
+          path: build
+          if-no-files-found: error

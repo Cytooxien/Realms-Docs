@@ -1,0 +1,51 @@
+name: Deploy GitHub Pages Preview
+
+on:
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: github-pages-preview-${{ github.event.workflow_run.pull_requests[0].number || github.event.workflow_run.id }}
+  cancel-in-progress: true
+
+jobs:
+  deploy-preview:
+    if: |
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.pull_requests[0] != null
+    runs-on: ubuntu-latest
+    environment:
+      name: preview-pr-${{ github.event.workflow_run.pull_requests[0].number }}
+      url: https://cytooxien.github.io/Realms-Docs/previews/pr-${{ github.event.workflow_run.pull_requests[0].number }}/
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Download preview artifact
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: pr-preview-site
+          path: preview-site
+
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          action: deploy
+          source-dir: preview-site/
+          preview-branch: gh-pages
+          umbrella-dir: previews
+          pr-number: ${{ github.event.workflow_run.pull_requests[0].number }}
+          pages-base-url: https://cytooxien.github.io/Realms-Docs/
+          wait-for-pages-deployment: true
+          token: ${{ secrets.GITHUB_TOKEN }}
