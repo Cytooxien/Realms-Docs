@@ -27,7 +27,7 @@ jobs:
 
       - name: Enable auto-merge for allowed updates
         if: |
-          (steps.metadata.outputs.package-ecosystem == 'npm' ||
+          (steps.metadata.outputs.package-ecosystem == 'npm_and_yarn' ||
            steps.metadata.outputs.package-ecosystem == 'github_actions') &&
           (steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
            steps.metadata.outputs.update-type == 'version-update:semver-minor')
