@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.0">
 <title data-rh="true">Realms Skript Syntax | Cytooxien-Realms Wiki</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://cytooxien.github.io/Realms-Docs/previews/pr-40/Cy_T_14x.webp"><meta data-rh="true" name="twitter:image" content="https://cytooxien.github.io/Realms-Docs/previews/pr-40/Cy_T_14x.webp"><meta data-rh="true" property="og:url" content="https://cytooxien.github.io/Realms-Docs/previews/pr-40/docs/integrations/skript-syntax"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="de"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Realms Skript Syntax | Cytooxien-Realms Wiki"><meta data-rh="true" name="description" content="This page documents the built-in Skript integration that ships with Realms-API."><meta data-rh="true" property="og:description" content="This page documents the built-in Skript integration that ships with Realms-API."><link data-rh="true" rel="icon" href="/Realms-Docs/previews/pr-40/favicon.png"><link data-rh="true" rel="canonical" href="https://cytooxien.github.io/Realms-Docs/previews/pr-40/docs/integrations/skript-syntax"><link data-rh="true" rel="alternate" href="https://cytooxien.github.io/Realms-Docs/previews/pr-40/docs/integrations/skript-syntax" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://cytooxien.github.io/Realms-Docs/previews/pr-40/de/docs/integrations/skript-syntax" hreflang="de"><link data-rh="true" rel="alternate" href="https://cytooxien.github.io/Realms-Docs/previews/pr-40/docs/integrations/skript-syntax" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Integrations","item":"https://cytooxien.github.io/Realms-Docs/previews/pr-40/docs/integrations"},{"@type":"ListItem","position":2,"name":"Realms Skript Syntax","item":"https://cytooxien.github.io/Realms-Docs/previews/pr-40/docs/integrations/skript-syntax"}]}</script><link rel="stylesheet" href="/Realms-Docs/previews/pr-40/assets/css/styles.2eed2d81.css">
-<script src="/Realms-Docs/previews/pr-40/assets/js/runtime~main.1c8664d2.js" defer="defer"></script>
+<script src="/Realms-Docs/previews/pr-40/assets/js/runtime~main.63086a75.js" defer="defer"></script>
 <script src="/Realms-Docs/previews/pr-40/assets/js/main.1ef47ccc.js" defer="defer"></script>
 </head>
 <body>
@@ -51,6 +51,16 @@
 </ul>
 <p>Resolves fields of a realm boost object and exposes boost event data while a realm boost event is running.</p>
 <p>The timestamp can optionally be returned as a Skript date.</p>
+<p><strong>Accepted Inputs</strong></p>
+<ul>
+<li class=""><code>owner of</code>, <code>expiration of</code> and <code>amount of</code> expect a boost object.</li>
+<li class=""><code>event-*</code> patterns are available inside <code>on realm boost</code>.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li class=""><code>realm boost amount</code> without an input is shorthand for the current boost event amount.</li>
+<li class="">The timestamp and expiration can be returned as raw epoch milliseconds or as a Skript date.</li>
+</ul>
 <p><strong>Patterns</strong></p>
 <ul>
 <li class=""><code>[the] realm boost amount</code></li>
@@ -75,6 +85,20 @@
 </ul>
 <p>Reads and updates custom realm prefixes and suffixes for players.</p>
 <p>The expression can return adventure components directly or serialize them as legacy strings.</p>
+<p><strong>Accepted Inputs</strong></p>
+<ul>
+<li class="">%player% for all patterns</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li class="">If you omit <code>tab</code> or <code>chat</code>, the change is applied to both channels.</li>
+<li class="">The prefix syntax manages a custom override and not the player&#x27;s group prefix.</li>
+<li class="">The stored values persist across restarts.</li>
+</ul>
+<p><strong>Limits And Caveats</strong></p>
+<ul>
+<li class="">Without <code>as string</code>, the expression returns a Kyori Adventure component.</li>
+</ul>
 <p><strong>Patterns</strong></p>
 <ul>
 <li class=""><code>[the] realm [(1:tab|2:chat)][(-| )]suffix of %player% [string:as string]</code></li>
@@ -94,6 +118,10 @@
 </ul>
 <p>Provides shorthand access to common fields of the realm boost event.</p>
 <p>Use these expressions only inside <code>on realm boost</code>.</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li class="">These expressions are boost-event shorthands only and should be used inside <code>on realm boost</code>.</li>
+</ul>
 <p><strong>Patterns</strong></p>
 <ul>
 <li class=""><code>event-boost</code></li>
@@ -112,6 +140,21 @@
 </ul>
 <p>Returns the stored join reason of a player or the join reason of the current realm player join event.</p>
 <p>Inside <code>on realm player join</code>, the shorthand <code>realm join reason</code> and <code>event-reason</code> both resolve to the event value.</p>
+<p><strong>Accepted Inputs</strong></p>
+<ul>
+<li class="">Player, offline player, UUID or UUID string for direct lookups</li>
+</ul>
+<p><strong>Valid Values</strong></p>
+<ul>
+<li class=""><code>DIRECT</code> for direct subdomain joins</li>
+<li class=""><code>LOBBY</code> for joins through the lobby realm menu</li>
+<li class=""><code>JOINME</code> for join-me accepts</li>
+<li class=""><code>FRIEND_JUMP</code> for friend-list jumps</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li class=""><code>realm join reason</code> and <code>event-reason</code> resolve to the current event value inside <code>on realm player join</code>.</li>
+</ul>
 <p><strong>Patterns</strong></p>
 <ul>
 <li class=""><code>realm join reason of %object%</code></li>
@@ -131,6 +174,17 @@
 </ul>
 <p>Returns realm groups, booster groups, player group assignments and group metadata.</p>
 <p>Group-based patterns accept either a realm group object or a UUID that resolves to a group.</p>
+<p><strong>Accepted Inputs</strong></p>
+<ul>
+<li class="">Realm group metadata patterns accept a group object or a group UUID.</li>
+<li class="">Player-group patterns accept <code>%offlineplayer%</code>.</li>
+<li class="">The booster-group lookup accepts a boost count as <code>%integer%</code>.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li class="">The group prefix is serialized as text for Skript output.</li>
+<li class="">Primary network group lookups come back through the Realms action wrapper and may return no value if unavailable.</li>
+</ul>
 <p><strong>Patterns</strong></p>
 <ul>
 <li class=""><code>all realm groups</code></li>
@@ -161,6 +215,19 @@
 </ul>
 <p>Reads a player&#x27;s current realm language or accesses the old and new language inside the realm language change event.</p>
 <p>Use the optional <code>as string</code> suffix when plain text output is preferred over the enum value.</p>
+<p><strong>Accepted Inputs</strong></p>
+<ul>
+<li class="">Player, offline player, UUID or UUID string for direct lookups</li>
+</ul>
+<p><strong>Valid Values</strong></p>
+<ul>
+<li class="">Common values include <code>DE</code>, <code>DE_AT</code>, <code>DE_CH</code>, <code>MXN</code>, <code>EN</code>, <code>RU</code>, <code>FR</code> and fallback values such as <code>OTHER</code>.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li class=""><code>event-language</code>, <code>past event-language</code>, <code>new realm language</code> and <code>old realm language</code> only make sense inside <code>on realm player language change</code>.</li>
+<li class="">Use <code>as string</code> if you want the enum name instead of the language object.</li>
+</ul>
 <p><strong>Patterns</strong></p>
 <ul>
 <li class=""><code>[the] (realm|cytooxien|cxn) language (from|of) %object% [string:as string]</code></li>
@@ -180,6 +247,17 @@
 </ul>
 <p>Resolves names, UUIDs, texture properties and boost data through the Realms player information provider.</p>
 <p>The object input accepts players, offline players, UUIDs and UUID strings depending on the pattern.</p>
+<p><strong>Accepted Inputs</strong></p>
+<ul>
+<li class="">Player name lookup: player, offline player, UUID or UUID string</li>
+<li class="">UUID lookup: player, offline player, UUID, UUID string or player name string</li>
+<li class="">Texture property and boost patterns: player, offline player, UUID or UUID string</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li class="">These lookups go through the Realms player information provider instead of external Mojang requests.</li>
+<li class="">The boost list returns Skript list values that can be inspected with <code>owner of realm booster</code>, <code>expiration of realm booster</code> and <code>amount of realm booster</code>.</li>
+</ul>
 <p><strong>Patterns</strong></p>
 <ul>
 <li class=""><code>[the] (realm|cytooxien|cxn) [player][(-| )]name (of|from) %object%</code></li>
@@ -191,7 +269,7 @@
 <li class=""><code>%object%&#x27;s realm boost(s| list)</code></li>
 </ul>
 <p><strong>Examples</strong></p>
-<div class="language-skript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-skript codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token plain">send realm player name of player to player</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">send realm uuid of offlineplayer(&quot;Notch&quot;) to player</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">send realm boost count of player to player</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">loop realm boosts of player:</span><br></div></code></pre></div></div>
+<div class="language-skript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-skript codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token plain">send realm player name of player to player</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">send realm uuid of offlineplayer(&quot;Notch&quot;) to player</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">send realm boost count of player to player</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">set {_boosts::*} to realm boosts of player</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">loop {_boosts::*}:</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">	send amount of realm booster loop-value to player</span><br></div></code></pre></div></div>
 <hr>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="realm">Realm<a href="#realm" class="hash-link" aria-label="Direct link to Realm" title="Direct link to Realm" translate="no">​</a></h3>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="realm-information">Realm Information<a href="#realm-information" class="hash-link" aria-label="Direct link to Realm Information" title="Direct link to Realm Information" translate="no">​</a></h4>
@@ -202,6 +280,18 @@
 </ul>
 <p>Reads and updates core realm metadata like display name, description, privacy state and maximum player count.</p>
 <p>This expression also exposes the current boost count, boost list and configured custom domain.</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li class="">The display name can be returned as a component or serialized string.</li>
+<li class="">The boost list can be looped and combined with the boost helper expressions.</li>
+<li class="">The subdomain pattern reads the currently configured custom domain.</li>
+</ul>
+<p><strong>Limits And Caveats</strong></p>
+<ul>
+<li class="">Changing the display name, privacy state and maximum player count can fail due to rate limits or realm restrictions.</li>
+<li class="">Realm names are typically limited to 32 characters and descriptions to 128 characters.</li>
+<li class="">Color formatting in the display name depends on the realm&#x27;s current boost capabilities.</li>
+</ul>
 <p><strong>Patterns</strong></p>
 <ul>
 <li class=""><code>[the] realm display name [string:as string]</code></li>
@@ -214,16 +304,25 @@
 <li class=""><code>[the] realm (custom domain|subdomain)</code></li>
 </ul>
 <p><strong>Examples</strong></p>
-<div class="language-skript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-skript codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token plain">send realm display name as string to player</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">set realm description to &quot;Welcome to the realm&quot;</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">set realm privacy state to true</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">send realm boost list to player</span><br></div></code></pre></div></div>
+<div class="language-skript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-skript codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token plain">send realm display name as string to player</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">set realm description to &quot;Welcome to the realm&quot;</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">set realm privacy state to true</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">set max realm player count to 3</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">send realm boost list to player</span><br></div></code></pre></div></div>
 <hr>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="realm-limits">Realm Limits<a href="#realm-limits" class="hash-link" aria-label="Direct link to Realm Limits" title="Direct link to Realm Limits" translate="no">​</a></h4>
 <ul>
 <li class="">Type: <code>Expressions</code></li>
 <li class="">Group: <code>Realm</code></li>
-<li class="">Returns: <code>integer</code></li>
+<li class="">Returns: <code>integer | boolean</code></li>
 </ul>
 <p>Exposes the configured technical and gameplay limits of the current realm.</p>
 <p>This includes CPU, RAM, disk, loaded worlds, groups and plugin limits.</p>
+<p><strong>Valid Values</strong></p>
+<ul>
+<li class=""><code>custom plugins limit</code> returns a boolean flag.</li>
+<li class="">The remaining limit expressions return integer values.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li class="">These values describe the current boost-tier limits of the realm.</li>
+</ul>
 <p><strong>Patterns</strong></p>
 <ul>
 <li class=""><code>[the] realm[&#x27;s] cpu limit</code></li>
@@ -248,6 +347,16 @@
 </ul>
 <p>Lists defined realm worlds and resolves them by display name, internal name or UUID.</p>
 <p>The world rule pattern can also be changed with <code>set</code> to update a boolean world rule on a defined world.</p>
+<p><strong>Accepted Inputs</strong></p>
+<ul>
+<li class="">World lookups accept a display name, internal name, defined world object or UUID depending on the pattern.</li>
+<li class="">The world rule pattern accepts a rule name as <code>%string%</code> and a defined world or world UUID as <code>%object%</code>.</li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li class="">World rules are resolved by their Realms world-rule name.</li>
+<li class="">The <code>set realm world rule ...</code> form updates boolean world rules on the stored defined world entry.</li>
+</ul>
 <p><strong>Patterns</strong></p>
 <ul>
 <li class=""><code>[all] [defined] realm worlds</code></li>
@@ -268,6 +377,14 @@
 </ul>
 <p>Adds or removes an offline player from a realm group.</p>
 <p>The group argument accepts a realm group object or a group UUID.</p>
+<p><strong>Accepted Inputs</strong></p>
+<ul>
+<li class=""><code>%offlineplayer%</code> plus a realm group object or group UUID</li>
+</ul>
+<p><strong>Limits And Caveats</strong></p>
+<ul>
+<li class="">Membership changes can fail because of backend restrictions or rate limits.</li>
+</ul>
 <p><strong>Patterns</strong></p>
 <ul>
 <li class=""><code>(1:add|2:remove) %offlineplayer% (from|to) realm group %object%</code></li>
@@ -283,6 +400,14 @@
 </ul>
 <p>Loads, unloads or deletes a defined realm world.</p>
 <p>The world argument accepts a defined world object or a world UUID.</p>
+<p><strong>Accepted Inputs</strong></p>
+<ul>
+<li class="">A defined world object or world UUID</li>
+</ul>
+<p><strong>Limits And Caveats</strong></p>
+<ul>
+<li class="">Deleting a world is destructive and should only be done when you are sure the world is no longer needed.</li>
+</ul>
 <p><strong>Patterns</strong></p>
 <ul>
 <li class=""><code>unload realm world [with uuid] %object%</code></li>
@@ -301,6 +426,10 @@
 </ul>
 <p>Checks whether the current realm is private or promoted.</p>
 <p>This condition reads the current realm state directly from the Realms information provider.</p>
+<p><strong>Notes</strong></p>
+<ul>
+<li class="">The promoted flag is available even if your realm rarely uses the promotion system.</li>
+</ul>
 <p><strong>Patterns</strong></p>
 <ul>
 <li class=""><code>[the] realm (1:is|2:isn&#x27;t) private</code></li>
@@ -318,6 +447,20 @@
 </ul>
 <p>Contains the built-in Realms event hooks for boosts, pauses, joins and language changes.</p>
 <p>Use the matching event expressions like <code>realm boost amount</code>, <code>realm join reason</code> or <code>event-language</code> inside these events.</p>
+<p><strong>Valid Values</strong></p>
+<ul>
+<li class=""><code>realm boost</code></li>
+<li class=""><code>realm pre pause</code></li>
+<li class=""><code>realm post pause</code></li>
+<li class=""><code>realm player join</code></li>
+<li class=""><code>realm player language change</code></li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul>
+<li class="">Use the boost helper expressions inside <code>on realm boost</code>.</li>
+<li class="">Use <code>realm join reason</code> inside <code>on realm player join</code>.</li>
+<li class="">Use <code>event-language</code> and <code>past event-language</code> inside <code>on realm player language change</code>.</li>
+</ul>
 <p><strong>Patterns</strong></p>
 <ul>
 <li class=""><code>realm boost</code></li>
@@ -332,7 +475,7 @@
 <li class=""><code>realm [player] language (event|change [event])</code></li>
 </ul>
 <p><strong>Examples</strong></p>
-<div class="language-skript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-skript codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token plain">on realm boost:</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">	broadcast &quot;A new boost with %realm boost amount% arrived&quot;</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">on realm player language change:</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">	send &quot;Language changed from %past event-language% to %event-language%&quot; to player</span><br></div></code></pre></div></div>
+<div class="language-skript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-skript codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token plain">on realm boost:</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">	broadcast &quot;A new boost with %realm boost amount% arrived&quot;</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">on realm player join:</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">	broadcast &quot;%player% joined through %realm join reason%&quot;</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">on realm player language change:</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">	send &quot;Language changed from %past event-language% to %event-language%&quot; to player</span><br></div></code></pre></div></div>
 <hr></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/Cytooxien/Realms-Docs/tree/master/docs/integrations/skript-syntax.mdx" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/Realms-Docs/previews/pr-40/docs/integrations/realms-api"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Realms API</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/Realms-Docs/previews/pr-40/docs/contributing"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Contributing</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a><ul><li><a href="#expressions" class="table-of-contents__link toc-highlight">Expressions</a></li><li><a href="#effects" class="table-of-contents__link toc-highlight">Effects</a></li><li><a href="#conditions" class="table-of-contents__link toc-highlight">Conditions</a></li><li><a href="#events" class="table-of-contents__link toc-highlight">Events</a></li></ul></li><li><a href="#expressions-1" class="table-of-contents__link toc-highlight">Expressions</a><ul><li><a href="#boosts" class="table-of-contents__link toc-highlight">Boosts</a></li><li><a href="#display" class="table-of-contents__link toc-highlight">Display</a></li><li><a href="#events-1" class="table-of-contents__link toc-highlight">Events</a></li><li><a href="#permissions" class="table-of-contents__link toc-highlight">Permissions</a></li><li><a href="#player" class="table-of-contents__link toc-highlight">Player</a></li><li><a href="#realm" class="table-of-contents__link toc-highlight">Realm</a></li><li><a href="#worlds" class="table-of-contents__link toc-highlight">Worlds</a></li></ul></li><li><a href="#effects-1" class="table-of-contents__link toc-highlight">Effects</a><ul><li><a href="#permissions-1" class="table-of-contents__link toc-highlight">Permissions</a></li><li><a href="#worlds-1" class="table-of-contents__link toc-highlight">Worlds</a></li></ul></li><li><a href="#conditions-1" class="table-of-contents__link toc-highlight">Conditions</a><ul><li><a href="#realm-1" class="table-of-contents__link toc-highlight">Realm</a></li></ul></li><li><a href="#events-2" class="table-of-contents__link toc-highlight">Events</a><ul><li><a href="#events-3" class="table-of-contents__link toc-highlight">Events</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/Realms-Docs/previews/pr-40/docs/getting-started">Getting Started</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://discord.gg/cytooxien" target="_blank" rel="noopener noreferrer" class="footer__link-item">Cytooxien Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Cytooxien/Realms-Docs" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Cytooxien. Built with Docusaurus.</div></div></div></footer></div>
 </body>
 </html>
