@@ -70,6 +70,19 @@ const sidebars: SidebarsConfig = {
             ]
         },
         {
+            type: "category",
+            label: "Integrations",
+            collapsed: true,
+            link: {
+                type: "generated-index",
+                slug: "integrations"
+            },
+            items: [
+                "integrations/realms-api",
+                "integrations/skript-syntax"
+            ]
+        },
+        {
             type: "doc",
             id: "contributing",
             label: "Contributing"

@@ -1,0 +1,79 @@
+---
+title: Realms API
+sidebar_position: 1
+---
+
+# Realms API
+
+The official Java API for Realms is published in the GitHub repository:
+
+- [Cytooxien/Realms-API](https://github.com/Cytooxien/Realms-API)
+
+## Purpose
+
+`Realms-API` is the central Java integration surface for Realms.
+
+Use it if you want to:
+
+- build your own Java plugin against Realms
+- access official provider interfaces instead of internal implementation details
+- react to Realms events in Bukkit
+- work with typed models and enums exposed by the platform
+- review migration notes and changelog entries before updating
+
+## What is inside
+
+The repository currently contains these main areas:
+
+- provider interfaces in `de.cytooxien.realms.api`
+- model records in `de.cytooxien.realms.api.model`
+- Bukkit events in `de.cytooxien.realms.api.event`
+- enums in `de.cytooxien.realms.api.enums`
+- Maven build and published artifact via `pom.xml`
+- migration notes in `MIGRATION-4.0.md`
+- release history in `CHANGELOG.md`
+
+## Main interfaces
+
+The current API exposes these central interfaces:
+
+- `DisplayProvider`
+- `PlayerInformationProvider`
+- `RealmInformationProvider`
+- `RealmPermissionProvider`
+- `RealmWorldProvider`
+- `Action<T>` for action results
+
+These interfaces are the intended entry point for Java integrations.
+
+## Models and enums
+
+The repository currently includes model records such as:
+
+- `Boost`
+- `DefinedWorld`
+- `Group`
+- `Limits`
+
+It also exposes enums such as:
+
+- `JoinReason`
+- `Language`
+- `WorldPreset`
+- `WorldRule`
+
+## Events
+
+The Bukkit event package currently contains:
+
+- `RealmBoostEvent`
+- `RealmPlayerJoinEvent`
+- `RealmPlayerLanguageChangeEvent`
+- `RealmPrePauseEvent`
+- `RealmPostPauseEvent`
+
+## Related documentation
+
+For the built-in Skript integration, see:
+
+- [Realms Skript Syntax](./skript-syntax)
