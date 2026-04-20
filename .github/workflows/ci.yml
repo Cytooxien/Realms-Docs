@@ -45,7 +45,7 @@ jobs:
 
       - name: Upload preview artifact
         if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pr-preview-site
           path: build
@@ -53,7 +53,7 @@ jobs:
 
       - name: Upload production artifact
         if: github.event_name != 'pull_request'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: production-site
           path: build
