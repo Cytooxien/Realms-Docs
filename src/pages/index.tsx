@@ -41,10 +41,10 @@ export default function Home() {
                     <Image img={"XLogo_3D_14x.webp"} alt={"Cytooxien Logo"} className={"logo"} />
                     <h1 className={"title red-text"}>Cytooxien-Realms Wiki</h1>
                     <p className={"subtitle"}>
-                        <Translate>home.subtitle</Translate>
+                        <Translate id="home.subtitle">Welcome to the community-driven documentation for Cytooxien Realms!</Translate>
                     </p>
                     <Link to={"./docs/getting-started"} className={"btn"}>
-                        <Translate>home.getStarted</Translate>
+                        <Translate id="home.getStarted">Get Started</Translate>
                     </Link>
                 </div>
             </main>
