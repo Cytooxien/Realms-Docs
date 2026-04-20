@@ -55,6 +55,16 @@ Resolves fields of a realm boost object and exposes boost event data while a rea
 
 The timestamp can optionally be returned as a Skript date.
 
+**Accepted Inputs**
+
+- `owner of`, `expiration of` and `amount of` expect a boost object.
+- `event-*` patterns are available inside `on realm boost`.
+
+**Notes**
+
+- `realm boost amount` without an input is shorthand for the current boost event amount.
+- The timestamp and expiration can be returned as raw epoch milliseconds or as a Skript date.
+
 **Patterns**
 
 - `[the] realm boost amount`
@@ -90,6 +100,20 @@ Reads and updates custom realm prefixes and suffixes for players.
 
 The expression can return adventure components directly or serialize them as legacy strings.
 
+**Accepted Inputs**
+
+- %player% for all patterns
+
+**Notes**
+
+- If you omit `tab` or `chat`, the change is applied to both channels.
+- The prefix syntax manages a custom override and not the player's group prefix.
+- The stored values persist across restarts.
+
+**Limits And Caveats**
+
+- Without `as string`, the expression returns a Kyori Adventure component.
+
 **Patterns**
 
 - `[the] realm [(1:tab|2:chat)][(-| )]suffix of %player% [string:as string]`
@@ -119,6 +143,10 @@ Provides shorthand access to common fields of the realm boost event.
 
 Use these expressions only inside `on realm boost`.
 
+**Notes**
+
+- These expressions are boost-event shorthands only and should be used inside `on realm boost`.
+
 **Patterns**
 
 - `event-boost`
@@ -145,6 +173,21 @@ on realm boost:
 Returns the stored join reason of a player or the join reason of the current realm player join event.
 
 Inside `on realm player join`, the shorthand `realm join reason` and `event-reason` both resolve to the event value.
+
+**Accepted Inputs**
+
+- Player, offline player, UUID or UUID string for direct lookups
+
+**Valid Values**
+
+- `DIRECT` for direct subdomain joins
+- `LOBBY` for joins through the lobby realm menu
+- `JOINME` for join-me accepts
+- `FRIEND_JUMP` for friend-list jumps
+
+**Notes**
+
+- `realm join reason` and `event-reason` resolve to the current event value inside `on realm player join`.
 
 **Patterns**
 
@@ -174,6 +217,17 @@ on realm player join:
 Returns realm groups, booster groups, player group assignments and group metadata.
 
 Group-based patterns accept either a realm group object or a UUID that resolves to a group.
+
+**Accepted Inputs**
+
+- Realm group metadata patterns accept a group object or a group UUID.
+- Player-group patterns accept `%offlineplayer%`.
+- The booster-group lookup accepts a boost count as `%integer%`.
+
+**Notes**
+
+- The group prefix is serialized as text for Skript output.
+- Primary network group lookups come back through the Realms action wrapper and may return no value if unavailable.
 
 **Patterns**
 
@@ -216,6 +270,19 @@ Reads a player's current realm language or accesses the old and new language ins
 
 Use the optional `as string` suffix when plain text output is preferred over the enum value.
 
+**Accepted Inputs**
+
+- Player, offline player, UUID or UUID string for direct lookups
+
+**Valid Values**
+
+- Common values include `DE`, `DE_AT`, `DE_CH`, `MXN`, `EN`, `RU`, `FR` and fallback values such as `OTHER`.
+
+**Notes**
+
+- `event-language`, `past event-language`, `new realm language` and `old realm language` only make sense inside `on realm player language change`.
+- Use `as string` if you want the enum name instead of the language object.
+
 **Patterns**
 
 - `[the] (realm|cytooxien|cxn) language (from|of) %object% [string:as string]`
@@ -244,6 +311,17 @@ Resolves names, UUIDs, texture properties and boost data through the Realms play
 
 The object input accepts players, offline players, UUIDs and UUID strings depending on the pattern.
 
+**Accepted Inputs**
+
+- Player name lookup: player, offline player, UUID or UUID string
+- UUID lookup: player, offline player, UUID, UUID string or player name string
+- Texture property and boost patterns: player, offline player, UUID or UUID string
+
+**Notes**
+
+- These lookups go through the Realms player information provider instead of external Mojang requests.
+- The boost list returns Skript list values that can be inspected with `owner of realm booster`, `expiration of realm booster` and `amount of realm booster`.
+
 **Patterns**
 
 - `[the] (realm|cytooxien|cxn) [player][(-| )]name (of|from) %object%`
@@ -260,7 +338,9 @@ The object input accepts players, offline players, UUIDs and UUID strings depend
 send realm player name of player to player
 send realm uuid of offlineplayer("Notch") to player
 send realm boost count of player to player
-loop realm boosts of player:
+set {_boosts::*} to realm boosts of player
+loop {_boosts::*}:
+	send amount of realm booster loop-value to player
 ```
 
 ---
@@ -276,6 +356,18 @@ loop realm boosts of player:
 Reads and updates core realm metadata like display name, description, privacy state and maximum player count.
 
 This expression also exposes the current boost count, boost list and configured custom domain.
+
+**Notes**
+
+- The display name can be returned as a component or serialized string.
+- The boost list can be looped and combined with the boost helper expressions.
+- The subdomain pattern reads the currently configured custom domain.
+
+**Limits And Caveats**
+
+- Changing the display name, privacy state and maximum player count can fail due to rate limits or realm restrictions.
+- Realm names are typically limited to 32 characters and descriptions to 128 characters.
+- Color formatting in the display name depends on the realm's current boost capabilities.
 
 **Patterns**
 
@@ -294,6 +386,7 @@ This expression also exposes the current boost count, boost list and configured 
 send realm display name as string to player
 set realm description to "Welcome to the realm"
 set realm privacy state to true
+set max realm player count to 3
 send realm boost list to player
 ```
 
@@ -303,11 +396,20 @@ send realm boost list to player
 
 - Type: `Expressions`
 - Group: `Realm`
-- Returns: `integer`
+- Returns: `integer | boolean`
 
 Exposes the configured technical and gameplay limits of the current realm.
 
 This includes CPU, RAM, disk, loaded worlds, groups and plugin limits.
+
+**Valid Values**
+
+- `custom plugins limit` returns a boolean flag.
+- The remaining limit expressions return integer values.
+
+**Notes**
+
+- These values describe the current boost-tier limits of the realm.
 
 **Patterns**
 
@@ -343,6 +445,16 @@ Lists defined realm worlds and resolves them by display name, internal name or U
 
 The world rule pattern can also be changed with `set` to update a boolean world rule on a defined world.
 
+**Accepted Inputs**
+
+- World lookups accept a display name, internal name, defined world object or UUID depending on the pattern.
+- The world rule pattern accepts a rule name as `%string%` and a defined world or world UUID as `%object%`.
+
+**Notes**
+
+- World rules are resolved by their Realms world-rule name.
+- The `set realm world rule ...` form updates boolean world rules on the stored defined world entry.
+
 **Patterns**
 
 - `[all] [defined] realm worlds`
@@ -375,6 +487,14 @@ Adds or removes an offline player from a realm group.
 
 The group argument accepts a realm group object or a group UUID.
 
+**Accepted Inputs**
+
+- `%offlineplayer%` plus a realm group object or group UUID
+
+**Limits And Caveats**
+
+- Membership changes can fail because of backend restrictions or rate limits.
+
 **Patterns**
 
 - `(1:add|2:remove) %offlineplayer% (from|to) realm group %object%`
@@ -398,6 +518,14 @@ remove player from realm group {_group}
 Loads, unloads or deletes a defined realm world.
 
 The world argument accepts a defined world object or a world UUID.
+
+**Accepted Inputs**
+
+- A defined world object or world UUID
+
+**Limits And Caveats**
+
+- Deleting a world is destructive and should only be done when you are sure the world is no longer needed.
 
 **Patterns**
 
@@ -428,6 +556,10 @@ Checks whether the current realm is private or promoted.
 
 This condition reads the current realm state directly from the Realms information provider.
 
+**Notes**
+
+- The promoted flag is available even if your realm rarely uses the promotion system.
+
 **Patterns**
 
 - `[the] realm (1:is|2:isn't) private`
@@ -457,6 +589,20 @@ Contains the built-in Realms event hooks for boosts, pauses, joins and language 
 
 Use the matching event expressions like `realm boost amount`, `realm join reason` or `event-language` inside these events.
 
+**Valid Values**
+
+- `realm boost`
+- `realm pre pause`
+- `realm post pause`
+- `realm player join`
+- `realm player language change`
+
+**Notes**
+
+- Use the boost helper expressions inside `on realm boost`.
+- Use `realm join reason` inside `on realm player join`.
+- Use `event-language` and `past event-language` inside `on realm player language change`.
+
 **Patterns**
 
 - `realm boost`
@@ -475,6 +621,8 @@ Use the matching event expressions like `realm boost amount`, `realm join reason
 ```skript
 on realm boost:
 	broadcast "A new boost with %realm boost amount% arrived"
+on realm player join:
+	broadcast "%player% joined through %realm join reason%"
 on realm player language change:
 	send "Language changed from %past event-language% to %event-language%" to player
 ```
