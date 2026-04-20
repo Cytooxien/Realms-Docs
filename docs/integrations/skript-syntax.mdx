@@ -7,9 +7,39 @@ sidebar_position: 1
 
 # Realms Skript Syntax
 
-This page is generated from the built-in Realms Skript addon source code.
+This page documents the built-in Skript integration that ships with `Realms-API`.
 
+:::tip Java API
 The underlying Java API is available in the [Realms-API repository](https://github.com/Cytooxien/Realms-API).
+:::
+
+## Overview
+
+### Expressions
+
+- [Realm Boost Data](#realm-boost-data) in `Boosts`
+- [Realm Display Text](#realm-display-text) in `Display`
+- [Realm Event Data](#realm-event-data) in `Events`
+- [Realm Join Reason](#realm-join-reason) in `Events`
+- [Realm Permissions](#realm-permissions) in `Permissions`
+- [Realm Language](#realm-language) in `Player`
+- [Realm Player Information](#realm-player-information) in `Player`
+- [Realm Information](#realm-information) in `Realm`
+- [Realm Limits](#realm-limits) in `Realm`
+- [Realm Worlds](#realm-worlds) in `Worlds`
+
+### Effects
+
+- [Realm Group Membership](#realm-group-membership) in `Permissions`
+- [Realm World Action](#realm-world-action) in `Worlds`
+
+### Conditions
+
+- [Realm State](#realm-state) in `Realm`
+
+### Events
+
+- [Realms Events](#realms-events) in `Events`
 
 ## Expressions
 
@@ -17,29 +47,27 @@ The underlying Java API is available in the [Realms-API repository](https://gith
 
 #### Realm Boost Data
 
-Returns: `boost | integer | uuid | profile | date | long`
-
-Since: `1.0`
+- Type: `Expressions`
+- Group: `Boosts`
+- Returns: `boost | integer | uuid | profile | date | long`
 
 Resolves fields of a realm boost object and exposes boost event data while a realm boost event is running.
 
 The timestamp can optionally be returned as a Skript date.
 
-Patterns:
+**Patterns**
 
-```skript
-[the] realm boost amount
-(owner of|[the] owner of [realm] boost[er]) %object%
-(expir[ation|y] of|[the] expir[ation|y] of [realm] boost[er]) %object% [date:as date]
-(amount of|[the] amount of [realm] boost[er]) %object%
-event-boost
-event-boost-amount
-event-uuid
-event-profile
-event-timestamp [date:as date]
-```
+- `[the] realm boost amount`
+- `(owner of|[the] owner of [realm] boost[er]) %object%`
+- `(expir[ation|y] of|[the] expir[ation|y] of [realm] boost[er]) %object% [date:as date]`
+- `(amount of|[the] amount of [realm] boost[er]) %object%`
+- `event-boost`
+- `event-boost-amount`
+- `event-uuid`
+- `event-profile`
+- `event-timestamp [date:as date]`
 
-Examples:
+**Examples**
 
 ```skript
 on realm boost:
@@ -48,28 +76,28 @@ send amount of event-boost to player
 send expiration of event-boost as date to player
 ```
 
+---
+
 ### Display
 
 #### Realm Display Text
 
-Returns: `component | string`
-
-Since: `1.0`
+- Type: `Expressions`
+- Group: `Display`
+- Returns: `component | string`
 
 Reads and updates custom realm prefixes and suffixes for players.
 
 The expression can return adventure components directly or serialize them as legacy strings.
 
-Patterns:
+**Patterns**
 
-```skript
-[the] realm [(1:tab|2:chat)][(-| )]suffix of %player% [string:as string]
-%player%'s realm [(1:tab|2:chat)][(-| )]suffix [string:as string]
-[the] [custom] realm [(1:tab|2:chat)][(-| )]prefix of %player% [string:as string]
-%player%'s [custom] realm [(1:tab|2:chat)][(-| )]prefix [string:as string]
-```
+- `[the] realm [(1:tab|2:chat)][(-| )]suffix of %player% [string:as string]`
+- `%player%'s realm [(1:tab|2:chat)][(-| )]suffix [string:as string]`
+- `[the] [custom] realm [(1:tab|2:chat)][(-| )]prefix of %player% [string:as string]`
+- `%player%'s [custom] realm [(1:tab|2:chat)][(-| )]prefix [string:as string]`
 
-Examples:
+**Examples**
 
 ```skript
 send realm chat suffix of player as string to player
@@ -77,28 +105,28 @@ set realm chat prefix of player to "&6[VIP] "
 reset player's custom realm tab prefix
 ```
 
+---
+
 ### Events
 
 #### Realm Event Data
 
-Returns: `boost | uuid | profile | date | long`
-
-Since: `1.0`
+- Type: `Expressions`
+- Group: `Events`
+- Returns: `boost | uuid | profile | date | long`
 
 Provides shorthand access to common fields of the realm boost event.
 
 Use these expressions only inside `on realm boost`.
 
-Patterns:
+**Patterns**
 
-```skript
-event-boost
-event-uuid
-event-profile
-event-timestamp [date:as date]
-```
+- `event-boost`
+- `event-uuid`
+- `event-profile`
+- `event-timestamp [date:as date]`
 
-Examples:
+**Examples**
 
 ```skript
 on realm boost:
@@ -106,26 +134,26 @@ on realm boost:
 	send event-timestamp as date to player
 ```
 
+---
+
 #### Realm Join Reason
 
-Returns: `string`
-
-Since: `1.0`
+- Type: `Expressions`
+- Group: `Events`
+- Returns: `string`
 
 Returns the stored join reason of a player or the join reason of the current realm player join event.
 
 Inside `on realm player join`, the shorthand `realm join reason` and `event-reason` both resolve to the event value.
 
-Patterns:
+**Patterns**
 
-```skript
-realm join reason of %object%
-[the] realm join reason (of|from) %object%
-event-reason
-[the] realm join reason
-```
+- `realm join reason of %object%`
+- `[the] realm join reason (of|from) %object%`
+- `event-reason`
+- `[the] realm join reason`
 
-Examples:
+**Examples**
 
 ```skript
 send realm join reason of player to player
@@ -133,39 +161,39 @@ on realm player join:
 	broadcast "%player% joined through %realm join reason%"
 ```
 
+---
+
 ### Permissions
 
 #### Realm Permissions
 
-Returns: `group | group[] | uuid | string | integer | permission[]`
-
-Since: `1.0`
+- Type: `Expressions`
+- Group: `Permissions`
+- Returns: `group | group[] | uuid | string | integer | permission[]`
 
 Returns realm groups, booster groups, player group assignments and group metadata.
 
 Group-based patterns accept either a realm group object or a UUID that resolves to a group.
 
-Patterns:
+**Patterns**
 
-```skript
-all realm groups
-[the] realm (1:default|2:owner) group
-[the] realm booster group at %integer% boost[s]
-[the] realm booster groups
-[the] group members of group [with id] %object%
-[the] first [realm] group (with name|named) %string%
-[the] [primary] realm group of %offlineplayer%
-[the] primary network group of %offlineplayer%
-[the] realm groups of %offlineplayer%
-[the] [group] id of [realm] group %object%
-[the] [group] name of [realm] group %object%
-[the] [group] prefix of [realm] group %object%
-[the] [group] color of [realm] group %object%
-[the] [group] priority of [realm] group %object%
-[the] permissions of [realm] group %object%
-```
+- `all realm groups`
+- `[the] realm (1:default|2:owner) group`
+- `[the] realm booster group at %integer% boost[s]`
+- `[the] realm booster groups`
+- `[the] group members of group [with id] %object%`
+- `[the] first [realm] group (with name|named) %string%`
+- `[the] [primary] realm group of %offlineplayer%`
+- `[the] primary network group of %offlineplayer%`
+- `[the] realm groups of %offlineplayer%`
+- `[the] [group] id of [realm] group %object%`
+- `[the] [group] name of [realm] group %object%`
+- `[the] [group] prefix of [realm] group %object%`
+- `[the] [group] color of [realm] group %object%`
+- `[the] [group] priority of [realm] group %object%`
+- `[the] permissions of [realm] group %object%`
 
-Examples:
+**Examples**
 
 ```skript
 send all realm groups to player
@@ -174,29 +202,29 @@ send permissions of realm group {_group} to player
 send group members of group {_group} to player
 ```
 
+---
+
 ### Player
 
 #### Realm Language
 
-Returns: `language | string`
-
-Since: `1.0`
+- Type: `Expressions`
+- Group: `Player`
+- Returns: `language | string`
 
 Reads a player's current realm language or accesses the old and new language inside the realm language change event.
 
 Use the optional `as string` suffix when plain text output is preferred over the enum value.
 
-Patterns:
+**Patterns**
 
-```skript
-[the] (realm|cytooxien|cxn) language (from|of) %object% [string:as string]
-event-language
-past event-language
-[the] new realm language
-[the] old realm language
-```
+- `[the] (realm|cytooxien|cxn) language (from|of) %object% [string:as string]`
+- `event-language`
+- `past event-language`
+- `[the] new realm language`
+- `[the] old realm language`
 
-Examples:
+**Examples**
 
 ```skript
 send realm language of player as string to player
@@ -204,29 +232,29 @@ on realm player language change:
 	send "Language changed from %past event-language% to %event-language%" to player
 ```
 
+---
+
 #### Realm Player Information
 
-Returns: `string | uuid | object | integer | boost[]`
-
-Since: `1.0`
+- Type: `Expressions`
+- Group: `Player`
+- Returns: `string | uuid | object | integer | boost[]`
 
 Resolves names, UUIDs, texture properties and boost data through the Realms player information provider.
 
 The object input accepts players, offline players, UUIDs and UUID strings depending on the pattern.
 
-Patterns:
+**Patterns**
 
-```skript
-[the] (realm|cytooxien|cxn) [player][(-| )]name (of|from) %object%
-[the] (realm|cytooxien|cxn) uuid (of|from) %object%
-[the] (realm|cytooxien|cxn) texture property (from|of) %object%
-[the] realm boost count of %object%
-%object%'s realm boost count
-[the] realm boost(s| list) of %object%
-%object%'s realm boost(s| list)
-```
+- `[the] (realm|cytooxien|cxn) [player][(-| )]name (of|from) %object%`
+- `[the] (realm|cytooxien|cxn) uuid (of|from) %object%`
+- `[the] (realm|cytooxien|cxn) texture property (from|of) %object%`
+- `[the] realm boost count of %object%`
+- `%object%'s realm boost count`
+- `[the] realm boost(s| list) of %object%`
+- `%object%'s realm boost(s| list)`
 
-Examples:
+**Examples**
 
 ```skript
 send realm player name of player to player
@@ -235,32 +263,32 @@ send realm boost count of player to player
 loop realm boosts of player:
 ```
 
+---
+
 ### Realm
 
 #### Realm Information
 
-Returns: `component | string | boolean | integer | boost[]`
-
-Since: `1.0`
+- Type: `Expressions`
+- Group: `Realm`
+- Returns: `component | string | boolean | integer | boost[]`
 
 Reads and updates core realm metadata like display name, description, privacy state and maximum player count.
 
 This expression also exposes the current boost count, boost list and configured custom domain.
 
-Patterns:
+**Patterns**
 
-```skript
-[the] realm display name [string:as string]
-[the] realm description
-[the] realm privacy state
-[the] max[imum] realm (players|player count)
-[the] realm max (players|player count)
-[the] realm boost (level|count)
-[the] realm boost list
-[the] realm (custom domain|subdomain)
-```
+- `[the] realm display name [string:as string]`
+- `[the] realm description`
+- `[the] realm privacy state`
+- `[the] max[imum] realm (players|player count)`
+- `[the] realm max (players|player count)`
+- `[the] realm boost (level|count)`
+- `[the] realm boost list`
+- `[the] realm (custom domain|subdomain)`
 
-Examples:
+**Examples**
 
 ```skript
 send realm display name as string to player
@@ -269,31 +297,31 @@ set realm privacy state to true
 send realm boost list to player
 ```
 
+---
+
 #### Realm Limits
 
-Returns: `integer`
-
-Since: `1.0`
+- Type: `Expressions`
+- Group: `Realm`
+- Returns: `integer`
 
 Exposes the configured technical and gameplay limits of the current realm.
 
 This includes CPU, RAM, disk, loaded worlds, groups and plugin limits.
 
-Patterns:
+**Patterns**
 
-```skript
-[the] realm['s] cpu limit
-[the] realm['s] ram limit
-[the] realm['s] disk space limit
-[the] realm['s] loaded worlds limit
-[the] realm['s] custom group count limit
-[the] realm['s] unused shutdown minutes limit
-[the] realm['s] stopped unload minutes limit
-[the] realm['s] custom plugins limit
-[the] realm['s] plugin count limit
-```
+- `[the] realm['s] cpu limit`
+- `[the] realm['s] ram limit`
+- `[the] realm['s] disk space limit`
+- `[the] realm['s] loaded worlds limit`
+- `[the] realm['s] custom group count limit`
+- `[the] realm['s] unused shutdown minutes limit`
+- `[the] realm['s] stopped unload minutes limit`
+- `[the] realm['s] custom plugins limit`
+- `[the] realm['s] plugin count limit`
 
-Examples:
+**Examples**
 
 ```skript
 send realm cpu limit to player
@@ -301,29 +329,29 @@ send realm plugin count limit to player
 send realm loaded worlds limit to player
 ```
 
+---
+
 ### Worlds
 
 #### Realm Worlds
 
-Returns: `defined world | defined world[] | boolean`
-
-Since: `1.0`
+- Type: `Expressions`
+- Group: `Worlds`
+- Returns: `defined world | defined world[] | boolean`
 
 Lists defined realm worlds and resolves them by display name, internal name or UUID.
 
 The world rule pattern can also be changed with `set` to update a boolean world rule on a defined world.
 
-Patterns:
+**Patterns**
 
-```skript
-[all] [defined] realm worlds
-realm world by display name %string%
-realm world by [internal] name %string%
-realm world by uuid %object%
-realm world rule %string% of [world] %object%
-```
+- `[all] [defined] realm worlds`
+- `realm world by display name %string%`
+- `realm world by [internal] name %string%`
+- `realm world by uuid %object%`
+- `realm world rule %string% of [world] %object%`
 
-Examples:
+**Examples**
 
 ```skript
 send all defined realm worlds to player
@@ -332,50 +360,52 @@ send realm world rule "pvp" of {_world} to player
 set realm world rule "keep_inventory" of {_world} to true
 ```
 
+---
+
 ## Effects
 
 ### Permissions
 
 #### Realm Group Membership
 
-Since: `1.0`
+- Type: `Effects`
+- Group: `Permissions`
 
 Adds or removes an offline player from a realm group.
 
 The group argument accepts a realm group object or a group UUID.
 
-Patterns:
+**Patterns**
 
-```skript
-(1:add|2:remove) %offlineplayer% (from|to) realm group %object%
-```
+- `(1:add|2:remove) %offlineplayer% (from|to) realm group %object%`
 
-Examples:
+**Examples**
 
 ```skript
 add offlineplayer("Notch") to realm group {_group}
 remove player from realm group {_group}
 ```
 
+---
+
 ### Worlds
 
 #### Realm World Action
 
-Since: `1.0`
+- Type: `Effects`
+- Group: `Worlds`
 
 Loads, unloads or deletes a defined realm world.
 
 The world argument accepts a defined world object or a world UUID.
 
-Patterns:
+**Patterns**
 
-```skript
-unload realm world [with uuid] %object%
-load realm world [with uuid] %object%
-delete realm world [with uuid] %object%
-```
+- `unload realm world [with uuid] %object%`
+- `load realm world [with uuid] %object%`
+- `delete realm world [with uuid] %object%`
 
-Examples:
+**Examples**
 
 ```skript
 load realm world {_world}
@@ -383,26 +413,27 @@ unload realm world "550e8400-e29b-41d4-a716-446655440000"
 delete realm world {_world}
 ```
 
+---
+
 ## Conditions
 
 ### Realm
 
 #### Realm State
 
-Since: `1.0`
+- Type: `Conditions`
+- Group: `Realm`
 
 Checks whether the current realm is private or promoted.
 
 This condition reads the current realm state directly from the Realms information provider.
 
-Patterns:
+**Patterns**
 
-```skript
-[the] realm (1:is|2:isn't) private
-[the] realm (1:is|2:isn't) promoted
-```
+- `[the] realm (1:is|2:isn't) private`
+- `[the] realm (1:is|2:isn't) promoted`
 
-Examples:
+**Examples**
 
 ```skript
 if realm is private:
@@ -411,34 +442,35 @@ if realm is promoted:
 	broadcast "This realm is promoted"
 ```
 
+---
+
 ## Events
 
 ### Events
 
 #### Realms Events
 
-Since: `1.0`
+- Type: `Events`
+- Group: `Events`
 
 Contains the built-in Realms event hooks for boosts, pauses, joins and language changes.
 
 Use the matching event expressions like `realm boost amount`, `realm join reason` or `event-language` inside these events.
 
-Patterns:
+**Patterns**
 
-```skript
-realm boost
-realm boost [event]
-realm pre pause
-realm pre pause event
-realm post pause
-realm post pause event
-realm player join
-realm player join [event]
-realm player language chang(e|ing)
-realm [player] language (event|change [event])
-```
+- `realm boost`
+- `realm boost [event]`
+- `realm pre pause`
+- `realm pre pause event`
+- `realm post pause`
+- `realm post pause event`
+- `realm player join`
+- `realm player join [event]`
+- `realm player language chang(e|ing)`
+- `realm [player] language (event|change [event])`
 
-Examples:
+**Examples**
 
 ```skript
 on realm boost:
@@ -446,4 +478,6 @@ on realm boost:
 on realm player language change:
 	send "Language changed from %past event-language% to %event-language%" to player
 ```
+
+---
 
