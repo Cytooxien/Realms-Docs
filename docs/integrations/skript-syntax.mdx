@@ -57,7 +57,7 @@ The timestamp can optionally be returned as a Skript date.
 
 **Accepted Inputs**
 
-- `owner of`, `expiration of` and `amount of` expect a boost object.
+- `owner of realm booster`, `expiration of` and `amount of realm booster` expect a boost object.
 - `event-*` patterns are available inside `on realm boost`.
 
 **Notes**
@@ -68,9 +68,9 @@ The timestamp can optionally be returned as a Skript date.
 **Patterns**
 
 - `[the] realm boost amount`
-- `(owner of|[the] owner of [realm] boost[er]) %object%`
+- `[the] owner of [realm] boost[er] %object%`
 - `(expir[ation|y] of|[the] expir[ation|y] of [realm] boost[er]) %object% [date:as date]`
-- `(amount of|[the] amount of [realm] boost[er]) %object%`
+- `[the] amount of [realm] boost[er] %object%`
 - `event-boost`
 - `event-boost-amount`
 - `event-uuid`
@@ -82,7 +82,7 @@ The timestamp can optionally be returned as a Skript date.
 ```skript
 on realm boost:
 	broadcast "%event-uuid% sent a boost with %event-boost-amount%"
-send amount of event-boost to player
+send amount of realm booster event-boost to player
 send expiration of event-boost as date to player
 ```
 
@@ -340,7 +340,9 @@ send realm uuid of offlineplayer("Notch") to player
 send realm boost count of player to player
 set {_boosts::*} to realm boosts of player
 loop {_boosts::*}:
-	send amount of realm booster loop-value to player
+	send "%owner of realm booster loop-value% boosted %amount of realm booster loop-value% time(s)" to player
+	send "Expires: %expiration of realm booster loop-value as date%" to player
+set {_boosts::*} to player's realm boosts
 ```
 
 ---
@@ -387,7 +389,10 @@ send realm display name as string to player
 set realm description to "Welcome to the realm"
 set realm privacy state to true
 set max realm player count to 3
-send realm boost list to player
+set {_boosts::*} to realm boost list
+loop {_boosts::*}:
+	send "%owner of realm booster loop-value% boosted %amount of realm booster loop-value% time(s)" to player
+	send "Expires: %expiration of realm booster loop-value as date%" to player
 ```
 
 ---
