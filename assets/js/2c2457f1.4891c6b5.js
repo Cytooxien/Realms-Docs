@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkrealms_docs=globalThis.webpackChunkrealms_docs||[]).push([[1359],{6182(a){a.exports=JSON.parse('{"metadata":{"permalink":"/Realms-Docs/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":0,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
