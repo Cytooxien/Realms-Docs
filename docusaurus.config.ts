@@ -2,13 +2,16 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+const siteUrl = process.env.DOCUSAURUS_SITE_URL ?? 'http://localhost:3000';
+const siteBaseUrl = process.env.DOCUSAURUS_BASE_URL ?? '/';
+
 const config: Config = {
     title: 'Cytooxien-Realms Wiki',
     tagline: 'The community-driven wiki for Cytooxien Realms',
     favicon: 'favicon.png',
 
-    url: 'https://cytooxien.github.io',
-    baseUrl: '/Realms-Docs/',
+    url: siteUrl,
+    baseUrl: siteBaseUrl,
     organizationName: 'Cytooxien',
     projectName: 'Realms-Docs',
     trailingSlash: false,
