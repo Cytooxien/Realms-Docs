@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Realms Skript Syntax | Cytooxien-Realms Wiki</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://cytooxien.github.io/Realms-Docs/Cy_T_14x.webp"><meta data-rh="true" name="twitter:image" content="https://cytooxien.github.io/Realms-Docs/Cy_T_14x.webp"><meta data-rh="true" property="og:url" content="https://cytooxien.github.io/Realms-Docs/docs/integrations/skript-syntax"><meta data-rh="true" property="og:locale" content="en_US"><meta data-rh="true" property="og:locale:alternate" content="de"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Realms Skript Syntax | Cytooxien-Realms Wiki"><meta data-rh="true" name="description" content="This page documents the built-in Skript integration that ships with Realms-API."><meta data-rh="true" property="og:description" content="This page documents the built-in Skript integration that ships with Realms-API."><link data-rh="true" rel="icon" href="/Realms-Docs/favicon.png"><link data-rh="true" rel="canonical" href="https://cytooxien.github.io/Realms-Docs/docs/integrations/skript-syntax"><link data-rh="true" rel="alternate" href="https://cytooxien.github.io/Realms-Docs/docs/integrations/skript-syntax" hreflang="en-US"><link data-rh="true" rel="alternate" href="https://cytooxien.github.io/Realms-Docs/de/docs/integrations/skript-syntax" hreflang="de"><link data-rh="true" rel="alternate" href="https://cytooxien.github.io/Realms-Docs/docs/integrations/skript-syntax" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Integrations","item":"https://cytooxien.github.io/Realms-Docs/docs/integrations"},{"@type":"ListItem","position":2,"name":"Realms Skript Syntax","item":"https://cytooxien.github.io/Realms-Docs/docs/integrations/skript-syntax"}]}</script><link rel="stylesheet" href="/Realms-Docs/assets/css/styles.47d93f62.css">
-<script src="/Realms-Docs/assets/js/runtime~main.ce8f9503.js" defer="defer"></script>
-<script src="/Realms-Docs/assets/js/main.0ab54267.js" defer="defer"></script>
+<script src="/Realms-Docs/assets/js/runtime~main.2f6c57a8.js" defer="defer"></script>
+<script src="/Realms-Docs/assets/js/main.e8ea0b5c.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -170,7 +170,7 @@
 <ul>
 <li class="">Type: <code>Expressions</code></li>
 <li class="">Group: <code>Permissions</code></li>
-<li class="">Returns: <code>group | group[] | uuid | string | integer | permission[]</code></li>
+<li class="">Returns: <code>group | group[] | uuid | component | string | integer | permission[]</code></li>
 </ul>
 <p>Returns realm groups, booster groups, player group assignments and group metadata.</p>
 <p>Group-based patterns accept either a realm group object or a UUID that resolves to a group.</p>
@@ -182,7 +182,7 @@
 </ul>
 <p><strong>Notes</strong></p>
 <ul>
-<li class="">The group prefix is serialized as text for Skript output.</li>
+<li class="">The group prefix is returned as a Kyori Adventure component by default.</li>
 <li class="">Primary network group lookups come back through the Realms action wrapper and may return no value if unavailable.</li>
 </ul>
 <p><strong>Patterns</strong></p>
@@ -204,7 +204,7 @@
 <li class=""><code>[the] permissions of [realm] group %object%</code></li>
 </ul>
 <p><strong>Examples</strong></p>
-<div class="language-skript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-skript codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token plain">send all realm groups to player</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">send realm group of player to player</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">send permissions of realm group {_group} to player</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">send group members of group {_group} to player</span><br></div></code></pre></div></div>
+<div class="language-skript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-skript codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token plain">send all realm groups to player</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">send realm group of player to player</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">send group prefix of group {_group} to player</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">send permissions of realm group {_group} to player</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">send group members of group {_group} to player</span><br></div></code></pre></div></div>
 <hr>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="player">Player<a href="#player" class="hash-link" aria-label="Direct link to Player" title="Direct link to Player" translate="no">​</a></h3>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="realm-language">Realm Language<a href="#realm-language" class="hash-link" aria-label="Direct link to Realm Language" title="Direct link to Realm Language" translate="no">​</a></h4>
