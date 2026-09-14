@@ -212,7 +212,7 @@ on realm player join:
 
 - Type: `Expressions`
 - Group: `Permissions`
-- Returns: `group | group[] | uuid | string | integer | permission[]`
+- Returns: `group | group[] | uuid | component | string | integer | permission[]`
 
 Returns realm groups, booster groups, player group assignments and group metadata.
 
@@ -226,7 +226,7 @@ Group-based patterns accept either a realm group object or a UUID that resolves 
 
 **Notes**
 
-- The group prefix is serialized as text for Skript output.
+- The group prefix is returned as a Kyori Adventure component by default.
 - Primary network group lookups come back through the Realms action wrapper and may return no value if unavailable.
 
 **Patterns**
@@ -252,6 +252,7 @@ Group-based patterns accept either a realm group object or a UUID that resolves 
 ```skript
 send all realm groups to player
 send realm group of player to player
+send group prefix of group {_group} to player
 send permissions of realm group {_group} to player
 send group members of group {_group} to player
 ```
