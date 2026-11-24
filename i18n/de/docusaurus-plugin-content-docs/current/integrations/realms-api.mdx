@@ -1,0 +1,79 @@
+---
+title: Realms API
+sidebar_position: 1
+---
+
+# Realms API
+
+Die offizielle Java API für die Realms befindet sich auf GitHub:
+
+- [Cytooxien/Realms-API](https://github.com/Cytooxien/Realms-API)
+
+## Zweck
+
+`Realms-API` ist die zentrale Java-Integrationsschnittstelle für Realms.
+
+Nutze sie, wenn du:
+
+- dein eigenes Java-Plugin für Realms entwickeln möchtest
+- auf offizielle Provider-Interfaces statt auf interne Implementierungsdetails zugreifen möchtest
+- in Bukkit auf Realms-Events reagieren möchtest
+- mit typisierten Modellen und Enums arbeiten möchtest, die von der Plattform bereitgestellt werden
+- Migrationshinweise und Changelog-Einträge vor einem Update durchsehen möchtest
+
+## Was enthalten ist
+
+Das Repository enthält aktuell diese Hauptbereiche:
+
+- Provider-Interfaces in `de.cytooxien.realms.api`
+- Model-Records in `de.cytooxien.realms.api.model`
+- Bukkit-Events in `de.cytooxien.realms.api.event`
+- Enums in `de.cytooxien.realms.api.enums`
+- Maven-Build und veröffentlichtes Artefakt über `pom.xml`
+- Migrationshinweise in `MIGRATION-4.0.md`
+- Release-Historie in `CHANGELOG.md`
+
+## Zentrale Interfaces
+
+Die aktuelle API stellt diese zentralen Interfaces bereit:
+
+- `DisplayProvider`
+- `PlayerInformationProvider`
+- `RealmInformationProvider`
+- `RealmPermissionProvider`
+- `RealmWorldProvider`
+- `Action<T>` für Action-Ergebnisse
+
+Diese Interfaces sind der vorgesehene Einstiegspunkt für Java-Integrationen.
+
+## Modelle und Enums
+
+Das Repository enthält aktuell Model-Records wie:
+
+- `Boost`
+- `DefinedWorld`
+- `Group`
+- `Limits`
+
+Außerdem werden Enums wie die folgenden bereitgestellt:
+
+- `JoinReason`
+- `Language`
+- `WorldPreset`
+- `WorldRule`
+
+## Events
+
+Das Bukkit-Event-Package enthält aktuell:
+
+- `RealmBoostEvent`
+- `RealmPlayerJoinEvent`
+- `RealmPlayerLanguageChangeEvent`
+- `RealmPrePauseEvent`
+- `RealmPostPauseEvent`
+
+## Weiterführende Dokumentation
+
+Für die integrierte Skript-Integration siehe:
+
+- [Realms Skript Syntax](./skript-syntax)
